@@ -23,9 +23,9 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
 
             //Post data
-            val loginServices = DataRepository.login()
+            val apiService = DataRepository.login()
             val user = LoginModel(username, password)
-            loginServices.loginUser(user).enqueue(object : Callback<ResponseModel> {
+            apiService.loginUser(user).enqueue(object : Callback<ResponseModel> {
                 override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
                     if (response.isSuccessful) {
                         val responses = response.body()
@@ -47,7 +47,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             })
         }
-
-
     }
 }

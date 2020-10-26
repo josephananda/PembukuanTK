@@ -1,6 +1,6 @@
 package com.jadeappstudio.pembukuantk.repo
 
-import com.jadeappstudio.pembukuantk.db.microservice.LoginServices
+import com.jadeappstudio.pembukuantk.db.microservice.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,11 +13,11 @@ object DataRepository {
         return retrofit.create(PostServices::class.java)
     }*/
 
-    fun login(): LoginServices {
+    fun login(): ApiService {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://pembukuantk.herokuapp.com/")
             .build()
-        return retrofit.create(LoginServices::class.java)
+        return retrofit.create(ApiService::class.java)
     }
 }
