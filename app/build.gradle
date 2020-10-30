@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -31,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -56,4 +60,7 @@ dependencies {
 
     //recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    kapt "com.android.databinding:compiler:4.1.0"
 }

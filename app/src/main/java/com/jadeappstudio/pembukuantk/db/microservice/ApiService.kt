@@ -10,8 +10,3 @@ interface ApiService {
     @POST("login")
     fun loginUser(@Body info: LoginModel): Call<ResponseModel>
 }
-
-/*interface PostServices {
-    @GET("posts")
-    fun getPosts(): Call<List<PostModel>>
-}*/

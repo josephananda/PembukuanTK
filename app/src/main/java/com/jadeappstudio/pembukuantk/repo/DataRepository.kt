@@ -1,23 +1,45 @@
 package com.jadeappstudio.pembukuantk.repo
 
+import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import com.jadeappstudio.pembukuantk.db.microservice.ApiService
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.jadeappstudio.pembukuantk.db.microservice.RetrofitService
+import com.jadeappstudio.pembukuantk.model.LoginModel
+import com.jadeappstudio.pembukuantk.model.ResponseModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-object DataRepository {
-    /*fun create(): PostServices {
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://jsonplaceholder.typicode.com/")
-            .build()
-        return retrofit.create(PostServices::class.java)
-    }*/
 
-    fun login(): ApiService {
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://pembukuantk.herokuapp.com/")
-            .build()
-        return retrofit.create(ApiService::class.java)
+class DataRepository {
+    lateinit var apiService: ApiService
+
+    fun login(username: String, password: String): MutableLiveData<ResponseModel> {
+        var finalResponse = MutableLiveData<ResponseModel>()
+        var retrofitService = RetrofitService()
+        apiService = retrofitService.create()
+        val user = LoginModel(username, password)
+        apiService.loginUser(user).enqueue(object : Callback<ResponseModel> {
+            override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                if (response.isSuccessful) {
+                    val responses = response.body()
+                    if (!responses?.status.equals("error")) {
+                        Log.i("token", responses?.data.toString())
+                        finalResponse.value = responses
+                        return
+                    } else {
+                        finalResponse.value = null
+                    }
+                } else {
+                    finalResponse.value = null
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseModel>, error: Throwable) {
+                finalResponse.value = null
+            }
+        })
+        return finalResponse
     }
 }

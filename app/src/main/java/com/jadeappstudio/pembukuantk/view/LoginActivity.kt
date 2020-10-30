@@ -1,49 +1,34 @@
 package com.jadeappstudio.pembukuantk.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.jadeappstudio.pembukuantk.R
-import com.jadeappstudio.pembukuantk.repo.DataRepository
-import com.jadeappstudio.pembukuantk.model.LoginModel
-import com.jadeappstudio.pembukuantk.model.ResponseModel
+import com.jadeappstudio.pembukuantk.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        btnLogin.setOnClickListener{
+        btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
 
-            //Post data
-            val apiService = DataRepository.login()
-            val user = LoginModel(username, password)
-            apiService.loginUser(user).enqueue(object : Callback<ResponseModel> {
-                override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
-                    if (response.isSuccessful) {
-                        val responses = response.body()
-                        if(!responses?.status.equals("error")) {
-                            val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                            intent.putExtra("token", responses?.data)
-                            startActivity(intent)
-                            finishAffinity()
-                        } else {
-                            Toast.makeText(this@LoginActivity, "Login Gagal", Toast.LENGTH_LONG).show()
-                        }
-                    } else {
-                        Toast.makeText(this@LoginActivity, "Login Gagal", Toast.LENGTH_LONG).show()
-                    }
-                }
+            var viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-                override fun onFailure(call: Call<ResponseModel>, error: Throwable) {
-                    Toast.makeText(this@LoginActivity, "Login Gagal", Toast.LENGTH_LONG).show()
+            viewModel.login(username, password)?.observe(this, Observer {
+                if (it == null) {
+                    Toast.makeText(this@LoginActivity, "LOGIN GAGAL", Toast.LENGTH_LONG).show()
+                } else if (!it.data.equals("")) {
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                    intent.putExtra("token", it.data)
+                    startActivity(intent)
+                    finishAffinity()
                 }
             })
         }
