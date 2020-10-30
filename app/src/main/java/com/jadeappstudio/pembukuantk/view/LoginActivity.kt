@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.viewmodel.LoginViewModel
@@ -19,12 +18,12 @@ class LoginActivity : AppCompatActivity() {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
 
-            var viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+            val viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-            viewModel.login(username, password)?.observe(this, Observer {
+            viewModel.login(username, password)?.observe(this, {
                 if (it == null) {
                     Toast.makeText(this@LoginActivity, "LOGIN GAGAL", Toast.LENGTH_LONG).show()
-                } else if (!it.data.equals("")) {
+                } else if (it.data != "") {
                     val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                     intent.putExtra("token", it.data)
                     startActivity(intent)

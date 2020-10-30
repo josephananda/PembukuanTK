@@ -1,7 +1,6 @@
 package com.jadeappstudio.pembukuantk.repo
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.jadeappstudio.pembukuantk.db.microservice.ApiService
 import com.jadeappstudio.pembukuantk.db.microservice.RetrofitService
@@ -13,11 +12,11 @@ import retrofit2.Response
 
 
 class DataRepository {
-    lateinit var apiService: ApiService
+    private lateinit var apiService: ApiService
 
     fun login(username: String, password: String): MutableLiveData<ResponseModel> {
-        var finalResponse = MutableLiveData<ResponseModel>()
-        var retrofitService = RetrofitService()
+        val finalResponse = MutableLiveData<ResponseModel>()
+        val retrofitService = RetrofitService()
         apiService = retrofitService.create()
         val user = LoginModel(username, password)
         apiService.loginUser(user).enqueue(object : Callback<ResponseModel> {
