@@ -19,17 +19,21 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
 
             val viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-
-            viewModel.login(username, password)?.observe(this, {
-                if (it == null) {
-                    Toast.makeText(this@LoginActivity, "LOGIN GAGAL", Toast.LENGTH_LONG).show()
-                } else if (it.data != "") {
-                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                    intent.putExtra("token", it.data)
-                    startActivity(intent)
-                    finishAffinity()
-                }
-            })
+            val valid = viewModel.isFormValid(username, password)
+            if (valid.equals("")) {
+                viewModel.login(username, password)?.observe(this, {
+                    if (it == null) {
+                        Toast.makeText(this@LoginActivity, "LOGIN GAGAL", Toast.LENGTH_LONG).show()
+                    } else if (it.data != "") {
+                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        intent.putExtra("token", it.data)
+                        startActivity(intent)
+                        finishAffinity()
+                    }
+                })
+            } else {
+                Toast.makeText(this@LoginActivity, valid, Toast.LENGTH_LONG).show()
+            }
         }
     }
 }

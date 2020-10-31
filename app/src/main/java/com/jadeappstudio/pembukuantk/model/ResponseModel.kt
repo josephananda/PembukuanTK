@@ -1,7 +1,7 @@
 package com.jadeappstudio.pembukuantk.model
 
 data class ResponseModel(
-    val status: String,
-    val message: String,
-    val data: String
+    var status: String? = "",
+    var message: String? = "",
+    var data: String? = ""
 )
