@@ -1,4 +1,4 @@
-package com.jadeappstudio.pembukuantk.view
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
             R.anim.anim_fade_in
         )
 
-        tvLogo.startAnimation(animFadeIn)
+        ivApplogo.startAnimation(animFadeIn)
 
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))

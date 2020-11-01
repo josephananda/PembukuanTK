@@ -3,12 +3,12 @@ package com.jadeappstudio.pembukuantk.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.jadeappstudio.pembukuantk.model.ResponseModel
-import com.jadeappstudio.pembukuantk.repo.DataRepository
+import com.jadeappstudio.pembukuantk.repo.AuthRepository
 
 
 class LoginViewModel : ViewModel() {
 
-    private var dataRepository = DataRepository()
+    private var authRepository = AuthRepository()
 
     fun isFormValid(username: String, password: String): String {
         var respon = ""
@@ -21,6 +21,6 @@ class LoginViewModel : ViewModel() {
     }
 
     fun login(username: String, password: String): LiveData<ResponseModel?>? {
-        return dataRepository.login(username, password)
+        return authRepository.login(username, password)
     }
 }
