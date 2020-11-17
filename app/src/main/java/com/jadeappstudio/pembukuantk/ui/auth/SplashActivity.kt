@@ -1,18 +1,23 @@
-package com.jadeappstudio.pembukuantk.ui
+package com.jadeappstudio.pembukuantk.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.jadeappstudio.pembukuantk.BottomNavActivity
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.viewmodel.SplashViewModel
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
 
         val animFadeIn = AnimationUtils.loadAnimation(
             this,
@@ -21,8 +26,15 @@ class SplashActivity : AppCompatActivity() {
 
         ivApplogo.startAnimation(animFadeIn)
 
+        val viewModel = ViewModelProvider(this).get(SplashViewModel::class.java)
+        val token = viewModel.checkToken(this)
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            if (token != "") {
+                startActivity(Intent(this@SplashActivity, BottomNavActivity::class.java))
+                Toast.makeText(this@SplashActivity, token, Toast.LENGTH_LONG).show()
+            } else {
+                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            }
         }, 3000)
     }
 }
