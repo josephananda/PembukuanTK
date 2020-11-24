@@ -22,10 +22,10 @@ class ContactsFragment : Fragment() {
         contactsViewModel =
             ViewModelProvider(this).get(ContactsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_contacts, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
+        /*val textView: TextView = root.findViewById(R.id.text_notifications)
         contactsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-        })
+        })*/
         return root
     }
 }

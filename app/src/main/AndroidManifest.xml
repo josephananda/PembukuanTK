@@ -11,9 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PembukuanTK">
+        <activity android:name=".AddProductActivity"></activity>
+        <activity android:name=".ui.AddContactsActivity" />
         <activity
             android:name=".BottomNavActivity"
-            android:label="@string/title_activity_bottom_nav"></activity>
+            android:label="@string/title_activity_bottom_nav" />
         <activity android:name=".ui.auth.HomeActivity" />
         <activity android:name=".ui.auth.LoginActivity" />
         <activity android:name=".ui.auth.SplashActivity">

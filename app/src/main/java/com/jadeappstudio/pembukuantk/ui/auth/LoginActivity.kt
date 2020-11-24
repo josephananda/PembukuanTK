@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.jadeappstudio.pembukuantk.BottomNavActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.utils.SessionManager
 import com.jadeappstudio.pembukuantk.viewmodel.LoginViewModel
@@ -33,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
                         btnLogin.isClickable = true
                     } else if (it.data != "") {
                         viewModel.saveToken(it.data.toString(), this)
-                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        val intent = Intent(this@LoginActivity, BottomNavActivity::class.java)
                         intent.putExtra("token", it.data)
                         startActivity(intent)
                         finishAffinity()

@@ -25,4 +25,14 @@
         <item name="android:paddingEnd">12dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="inputRegular">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="fontFamily">@font/rhtmedium</item>
+        <item name="android:lines">1</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
