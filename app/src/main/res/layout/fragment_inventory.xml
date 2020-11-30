@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
-        android:id="@+id/tvAddProduct"
+        android:id="@+id/tvInventory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/rhdbold"
@@ -40,53 +40,27 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/shape_rectangle_white_not_round"
-        app:layout_constraintBottom_toTopOf="@id/llButton"
+        app:layout_constraintBottom_toTopOf="@id/btnAddProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAddProduct"
+        app:layout_constraintTop_toBottomOf="@id/tvInventory"
         tools:listitem="@layout/item_product" />
 
-    <LinearLayout
-        android:id="@+id/llButton"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnAddProduct"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="4"
+        android:background="@drawable/shape_rectangle_yellow"
+        android:fontFamily="@font/rhtmedium"
+        android:gravity="center"
+        android:text="Add Product"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/btnAddProduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="4"
-            android:background="@drawable/shape_rectangle_yellow"
-            android:fontFamily="@font/rhtmedium"
-            android:gravity="center"
-            android:text="Add Product"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/btnAddProductStock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="6"
-            android:background="@drawable/shape_rectangle_yellow"
-            android:fontFamily="@font/rhtmedium"
-            android:gravity="center"
-            android:text="Add Product Stock"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-    </LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

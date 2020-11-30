@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    tools:context=".ui.AddContactsActivity">
+    tools:context=".AddProductStockActivity">
 
     <ImageView
         android:id="@+id/btnBack"
@@ -17,12 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvAddContact"
+        android:id="@+id/tvAddProductStock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/rhdbold"
-        android:text="Add New Contact"
+        android:text="Add Product Stock"
         android:textColor="@color/yellowPrimary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@id/btnBack"
@@ -36,93 +36,52 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAddContact">
+        app:layout_constraintTop_toBottomOf="@id/tvAddProductStock">
 
         <TextView
-            android:id="@+id/tvCustomerName"
+            android:id="@+id/tvProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rhdbold"
-            android:text="Customer Name"
+            android:text="Product Name"
+            android:textColor="@color/yellowPrimary"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spProductName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_edit" />
+
+        <TextView
+            android:id="@+id/tvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/rhdbold"
+            android:text="Product Price"
             android:textColor="@color/yellowPrimary"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etCustomerName"
+            android:id="@+id/etProductPrice"
             style="@style/inputRegular"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_input_edit"
-            android:hint="Name"
+            android:hint="Price"
             android:importantForAutofill="no"
             android:inputType="text" />
-
-        <TextView
-            android:id="@+id/tvCustomerPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/rhdbold"
-            android:text="Phone Number"
-            android:textColor="@color/yellowPrimary"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/etCustomerPhone"
-            style="@style/inputRegular"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_input_edit"
-            android:hint="Phone"
-            android:importantForAutofill="no"
-            android:inputType="phone" />
-
-        <TextView
-            android:id="@+id/tvCustomerEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/rhdbold"
-            android:text="Email Address"
-            android:textColor="@color/yellowPrimary"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/etCustomerEmail"
-            style="@style/inputRegular"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_input_edit"
-            android:hint="Email"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress" />
-
-        <TextView
-            android:id="@+id/tvCustomerAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/rhdbold"
-            android:text="Home Address"
-            android:textColor="@color/yellowPrimary"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/etCustomerAddress"
-            style="@style/inputRegular"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_input_edit"
-            android:hint="Address"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnAddContacts"
+        android:id="@+id/btnAddProductStock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_rectangle_yellow"
         android:fontFamily="@font/rhtmedium"
         android:gravity="center"
-        android:text="Add Contact"
+        android:text="Add Product Stock"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"

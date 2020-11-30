@@ -3,7 +3,7 @@ package com.jadeappstudio.pembukuantk.viewmodel
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.jadeappstudio.pembukuantk.model.ResponseModel
+import com.jadeappstudio.pembukuantk.model.LoginResponseModel
 import com.jadeappstudio.pembukuantk.repo.AuthRepository
 import com.jadeappstudio.pembukuantk.utils.SessionManager
 
@@ -22,7 +22,7 @@ class LoginViewModel : ViewModel() {
         return respon
     }
 
-    fun login(username: String, password: String, context: Context): LiveData<ResponseModel?>? {
+    fun login(username: String, password: String, context: Context): LiveData<LoginResponseModel?>? {
         return authRepository.login(username, password, context)
     }
 

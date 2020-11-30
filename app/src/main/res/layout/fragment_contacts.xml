@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
+    android:padding="30dp"
     tools:context=".ui.contacts.ContactsFragment">
 
     <!--<TextView
@@ -21,23 +22,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />-->
 
-    <Button
-        android:id="@+id/btnAdd"
+    <TextView
+        android:id="@+id/tvContacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:background="@drawable/shape_rectangle_yellow"
-        android:textAllCaps="false"
-        android:fontFamily="@font/rhtmedium"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Add"
-        android:textColor="@color/black"
+        android:fontFamily="@font/rhdbold"
+        android:text="Contacts"
+        android:textColor="@color/yellowPrimary"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInventory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/shape_rectangle_white_not_round"
+        app:layout_constraintBottom_toTopOf="@id/btnAddContacts"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="16sp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvContacts"
+        tools:listitem="@layout/item_product" />
+
+        <Button
+            android:id="@+id/btnAddContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="6"
+            android:background="@drawable/shape_rectangle_yellow"
+            android:fontFamily="@font/rhtmedium"
+            android:gravity="center"
+            android:text="Add New Contact"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
