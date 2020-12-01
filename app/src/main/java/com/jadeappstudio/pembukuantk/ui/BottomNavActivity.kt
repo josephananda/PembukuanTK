@@ -1,12 +1,12 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.jadeappstudio.pembukuantk.R
 
 class BottomNavActivity : AppCompatActivity() {
 
@@ -20,7 +20,11 @@ class BottomNavActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_dashboard, R.id.navigation_transactions, R.id.navigation_contacts, R.id.navigation_inventory, R.id.navigation_profile
+                R.id.navigation_dashboard,
+                R.id.navigation_transactions,
+                R.id.navigation_contacts,
+                R.id.navigation_inventory,
+                R.id.navigation_profile
             )
         )
         //setupActionBarWithNavController(navController, appBarConfiguration)

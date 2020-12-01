@@ -1,7 +1,7 @@
 package com.jadeappstudio.pembukuantk.model
 
-data class LoginResponseModel(
+data class AddProductStockResponseModel(
     var status: String? = "",
     var message: String? = "",
-    var data: LoginResponse.LoginResp
+    var data: ProductStockResponseModel.ProductStockResponse
 )

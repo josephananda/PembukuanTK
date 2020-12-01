@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    tools:context=".AddProductStockActivity">
+    tools:context=".ui.AddProductStockActivity">
 
     <ImageView
         android:id="@+id/btnBack"
@@ -29,6 +29,30 @@
         app:layout_constraintStart_toEndOf="@id/btnBack"
         app:layout_constraintTop_toTopOf="@id/btnBack" />
 
+    <TextView
+        android:id="@+id/tvProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rhdbold"
+        android:layout_marginTop="60dp"
+        android:text="Product Name:"
+        android:textColor="@color/yellowPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rhdbold"
+        android:layout_marginStart="8dp"
+        android:text=""
+        android:textColor="@color/yellowPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvProduct"
+        app:layout_constraintTop_toTopOf="@id/tvProduct"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,41 +60,25 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAddProductStock">
+        app:layout_constraintTop_toBottomOf="@id/tvProduct">
 
         <TextView
-            android:id="@+id/tvProductName"
+            android:id="@+id/tvQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rhdbold"
-            android:text="Product Name"
-            android:textColor="@color/yellowPrimary"
-            android:textSize="18sp" />
-
-        <Spinner
-            android:id="@+id/spProductName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/bg_input_edit" />
-
-        <TextView
-            android:id="@+id/tvProductPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/rhdbold"
-            android:text="Product Price"
+            android:text="Quantity"
             android:textColor="@color/yellowPrimary"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etProductPrice"
+            android:id="@+id/etQuantity"
             style="@style/inputRegular"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_input_edit"
-            android:hint="Price"
+            android:hint="Quantity"
             android:importantForAutofill="no"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </LinearLayout>
 

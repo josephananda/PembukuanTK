@@ -1,4 +1,4 @@
-package com.jadeappstudio.pembukuantk.ui.auth
+package com.jadeappstudio.pembukuantk.ui
 
 import android.os.Bundle
 import android.widget.Toast

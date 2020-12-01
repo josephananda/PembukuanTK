@@ -1,13 +1,11 @@
-package com.jadeappstudio.pembukuantk.ui.auth
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.BottomNavActivity
 import com.jadeappstudio.pembukuantk.R
-import com.jadeappstudio.pembukuantk.utils.SessionManager
 import com.jadeappstudio.pembukuantk.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -32,10 +30,11 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this@LoginActivity, "LOGIN GAGAL", Toast.LENGTH_LONG).show()
                         btnLogin.isEnabled = true
                         btnLogin.isClickable = true
-                    } else if (it.data != "") {
-                        viewModel.saveToken(it.data.toString(), this)
+                    } else if (it.data.token != "") {
+                        viewModel.saveToken(it.data.token.toString(), this)
+                        viewModel.saveData(it.data.user_id!!, it.data.user_type_id!!, it.data.username.toString(), this)
                         val intent = Intent(this@LoginActivity, BottomNavActivity::class.java)
-                        intent.putExtra("token", it.data)
+                        intent.putExtra("token", it.data.token)
                         startActivity(intent)
                         finishAffinity()
                     }

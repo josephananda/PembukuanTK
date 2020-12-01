@@ -1,4 +1,4 @@
-package com.jadeappstudio.pembukuantk.ui.transactions
+package com.jadeappstudio.pembukuantk.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -5,7 +5,7 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
-import com.jadeappstudio.pembukuantk.ui.auth.LoginActivity
+import com.jadeappstudio.pembukuantk.ui.LoginActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,9 +18,9 @@ class AuthTest {
     @Test
     fun LoginTest() {
         Espresso.onView(withId(R.id.etUsername))
-            .perform(ViewActions.typeText("joseph88888"), ViewActions.closeSoftKeyboard())
+            .perform(ViewActions.typeText("jo"), ViewActions.closeSoftKeyboard())
         Espresso.onView(withId(R.id.etPassword))
-            .perform(ViewActions.typeText("dummy"), ViewActions.closeSoftKeyboard())
+            .perform(ViewActions.typeText("jo"), ViewActions.closeSoftKeyboard())
         Espresso.onView(withId(R.id.btnLogin)).perform(ViewActions.click())
     }
 }

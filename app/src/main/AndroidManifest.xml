@@ -11,15 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PembukuanTK">
-        <activity android:name=".AddProductStockActivity" />
-        <activity android:name=".AddProductActivity" />
+        <activity android:name=".ui.AddProductStockActivity" />
+        <activity android:name=".ui.AddProductActivity" />
         <activity android:name=".ui.AddContactsActivity" />
         <activity
-            android:name=".BottomNavActivity"
+            android:name=".ui.BottomNavActivity"
             android:label="@string/title_activity_bottom_nav" />
-        <activity android:name=".ui.auth.HomeActivity" />
-        <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.auth.SplashActivity">
+        <activity android:name=".ui.HomeActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

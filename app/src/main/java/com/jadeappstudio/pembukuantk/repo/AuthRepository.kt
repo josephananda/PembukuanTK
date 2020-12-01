@@ -28,7 +28,7 @@ class AuthRepository {
                     val responses = response.body()
                     if (!responses?.status.equals("error")) {
                         finalResponse.value = responses
-                        sessionManager.saveAuthToken(responses?.data.toString())
+                        sessionManager.saveAuthToken(responses?.data?.token.toString())
                         return
                     } else {
                         finalResponse.value = null

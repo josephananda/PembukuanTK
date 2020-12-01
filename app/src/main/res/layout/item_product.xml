@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rhtmedium"
@@ -21,6 +22,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/tvSisaStock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -30,6 +32,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tvProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rp 150.000"

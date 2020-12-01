@@ -1,4 +1,4 @@
-package com.jadeappstudio.pembukuantk.ui.auth
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.BottomNavActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.viewmodel.SplashViewModel
 import kotlinx.android.synthetic.main.activity_splash.*

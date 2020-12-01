@@ -6,9 +6,7 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.jadeappstudio.pembukuantk.db.microservice.ApiClient
 import com.jadeappstudio.pembukuantk.db.microservice.ApiService
-import com.jadeappstudio.pembukuantk.model.AddProductResponseModel
-import com.jadeappstudio.pembukuantk.model.LoginResponseModel
-import com.jadeappstudio.pembukuantk.model.ProductModel
+import com.jadeappstudio.pembukuantk.model.*
 import com.jadeappstudio.pembukuantk.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,5 +46,128 @@ class InventoryRepository {
             }
         })
         return finalResponse
+    }
+
+    fun getProduct(context: Context): MutableLiveData<ProductItemResponse>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<ProductItemResponse>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        val userType = sessionManager.fetchUserTypeId()
+        if(userType == 1) {
+            apiService.getProductAdmin("${sessionManager.fetchAuthToken()}")
+                .enqueue(object : Callback<ProductItemResponse> {
+                    override fun onResponse(
+                        call: Call<ProductItemResponse>,
+                        response: Response<ProductItemResponse>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ProductItemResponse>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        } else {
+            apiService.getProduct("${sessionManager.fetchAuthToken()}")
+                .enqueue(object : Callback<ProductItemResponse> {
+                    override fun onResponse(
+                        call: Call<ProductItemResponse>,
+                        response: Response<ProductItemResponse>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ProductItemResponse>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        }
+    }
+
+    fun addStock(productId: Int, productQuantity: Int, context: Context): MutableLiveData<AddProductStockResponseModel>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<AddProductStockResponseModel>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        var userType = sessionManager.fetchUserTypeId()
+        val productStock = ProductStockModel(productId, productQuantity, userType)
+        if(userType == 1) {
+            apiService.addProductStockAdmin("${sessionManager.fetchAuthToken()}", productStock)
+                .enqueue(object : Callback<AddProductStockResponseModel> {
+                    override fun onResponse(
+                        call: Call<AddProductStockResponseModel>,
+                        response: Response<AddProductStockResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AddProductStockResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        } else {
+            apiService.addProductStock("${sessionManager.fetchAuthToken()}", productStock)
+                .enqueue(object : Callback<AddProductStockResponseModel> {
+                    override fun onResponse(
+                        call: Call<AddProductStockResponseModel>,
+                        response: Response<AddProductStockResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AddProductStockResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        }
     }
 }

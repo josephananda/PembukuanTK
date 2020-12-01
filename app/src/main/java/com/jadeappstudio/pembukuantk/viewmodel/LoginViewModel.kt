@@ -30,4 +30,11 @@ class LoginViewModel : ViewModel() {
         val sessionManager = SessionManager(context)
         sessionManager.saveAuthToken(token)
     }
+
+    fun saveData(userId: Int, userTypeId: Int, username: String, context: Context){
+        val sessionManager = SessionManager(context)
+        sessionManager.saveUserId(userId)
+        sessionManager.saveUserTypeId(userTypeId)
+        sessionManager.saveUsername(username)
+    }
 }

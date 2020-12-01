@@ -1,4 +1,4 @@
-package com.jadeappstudio.pembukuantk.ui.profile
+package com.jadeappstudio.pembukuantk.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.LiveData
