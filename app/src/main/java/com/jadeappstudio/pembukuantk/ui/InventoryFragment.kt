@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jadeappstudio.pembukuantk.adapter.ProductAdapter
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.adapter.ProductAdapter
 import com.jadeappstudio.pembukuantk.viewmodel.InventoryViewModel
 import kotlinx.android.synthetic.main.fragment_inventory.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class InventoryFragment : Fragment() {
 
@@ -34,7 +37,6 @@ class InventoryFragment : Fragment() {
         btnAddProduct.setOnClickListener {
             startActivity(Intent(activity, AddProductActivity::class.java))
         }
-
         inventoryViewModel.getProduct(requireContext()).observe(viewLifecycleOwner, {
             rvInventory.adapter = ProductAdapter(it.data)
             rvInventory.layoutManager = LinearLayoutManager(requireContext())

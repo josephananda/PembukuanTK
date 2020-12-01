@@ -13,8 +13,13 @@ class ProfileViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun setTokenEmpty(context: Context){
+    fun setDataEmpty(context: Context) {
         val sessionManager = SessionManager(context)
         sessionManager.saveAuthToken("")
+        sessionManager.saveUserId(0)
+        sessionManager.saveUserTypeId(0)
+        sessionManager.saveUsername("")
     }
+
+
 }

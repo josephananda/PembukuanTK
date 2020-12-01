@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_transactions" />
 
     <fragment
-        android:id="@+id/navigation_contacts"
-        android:name="com.jadeappstudio.pembukuantk.ui.ContactsFragment"
-        android:label="@string/title_contacts"
-        tools:layout="@layout/fragment_contacts" />
+        android:id="@+id/navigation_customer"
+        android:name="com.jadeappstudio.pembukuantk.ui.CustomerFragment"
+        android:label="@string/title_customer"
+        tools:layout="@layout/fragment_customer" />
 
     <fragment
         android:id="@+id/navigation_inventory"

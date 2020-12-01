@@ -1,7 +1,6 @@
 package com.jadeappstudio.pembukuantk.model
 
-data class ContactItemListResponse(
-    var id: Int? = 0,
+data class CustomerModel (
     var name: String? = "",
     var phone: String? = "",
     var email: String? = "",

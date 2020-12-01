@@ -1,7 +1,7 @@
 package com.jadeappstudio.pembukuantk.model
 
-data class ContactItemResponse(
+data class AddCustomerResponseModel(
     var status: String? = "",
     var message: String? = "",
-    var data: List<ContactItemListResponse>
+    var data: CustomerResponseModel.CustomerResponse
 )

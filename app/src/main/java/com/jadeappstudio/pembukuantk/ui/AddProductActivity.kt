@@ -30,8 +30,7 @@ class AddProductActivity : AppCompatActivity() {
                     Toast.makeText(this, "FAILED TO ADD PRODUCT", Toast.LENGTH_LONG).show()
                     btnAddProduct.isClickable = true
                 } else if (it.status.equals("success")) {
-                    val intent = Intent(this, BottomNavActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, BottomNavActivity::class.java))
                     finishAffinity()
                 }
             })

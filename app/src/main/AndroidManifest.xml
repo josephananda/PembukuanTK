@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PembukuanTK">
+        <activity android:name=".DetailCustomerActivity"></activity>
         <activity android:name=".ui.AddProductStockActivity" />
         <activity android:name=".ui.AddProductActivity" />
-        <activity android:name=".ui.AddContactsActivity" />
+        <activity android:name=".ui.AddCustomerActivity" />
         <activity
             android:name=".ui.BottomNavActivity"
             android:label="@string/title_activity_bottom_nav" />

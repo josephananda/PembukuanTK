@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.jadeappstudio.pembukuantk.R
@@ -30,7 +29,6 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             if (token != "") {
                 startActivity(Intent(this@SplashActivity, BottomNavActivity::class.java))
-                Toast.makeText(this@SplashActivity, token, Toast.LENGTH_LONG).show()
             } else {
                 startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
             }

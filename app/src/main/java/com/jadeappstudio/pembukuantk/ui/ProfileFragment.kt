@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
             profileViewModel =
                 ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-            profileViewModel.setTokenEmpty(requireContext())
+            profileViewModel.setDataEmpty(requireContext())
             startActivity(Intent(activity, LoginActivity::class.java))
             activity?.finishAffinity()
         }

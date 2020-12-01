@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    tools:context=".ui.AddContactsActivity">
+    tools:context=".ui.AddCustomerActivity">
 
     <ImageView
         android:id="@+id/btnBack"
@@ -17,12 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvAddContact"
+        android:id="@+id/tvAddCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/rhdbold"
-        android:text="Add New Contact"
+        android:text="Add New Customer"
         android:textColor="@color/yellowPrimary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@id/btnBack"
@@ -36,7 +36,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAddContact">
+        app:layout_constraintTop_toBottomOf="@id/tvAddCustomer">
 
         <TextView
             android:id="@+id/tvCustomerName"
@@ -111,18 +111,18 @@
             android:background="@drawable/bg_input_edit"
             android:hint="Address"
             android:importantForAutofill="no"
-            android:inputType="textEmailAddress" />
+            android:inputType="text" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnAddContacts"
+        android:id="@+id/btnAddCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_rectangle_yellow"
         android:fontFamily="@font/rhtmedium"
         android:gravity="center"
-        android:text="Add Contact"
+        android:text="Add Customer"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    tools:context=".ui.ContactsFragment">
+    android:layout_marginBottom="?attr/actionBarSize"
+    tools:context=".ui.CustomerFragment">
 
     <!--<TextView
         android:id="@+id/text_notifications"
@@ -27,27 +28,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/rhdbold"
-        android:text="Contacts"
+        android:text="Customers"
         android:textColor="@color/yellowPrimary"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvContacts"
+        android:id="@+id/rvCustomer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/shape_rectangle_white_not_round"
-        app:layout_constraintBottom_toTopOf="@id/btnAddContacts"
+        app:layout_constraintBottom_toTopOf="@id/btnAddCustomer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvContacts"
-        tools:listitem="@layout/item_contact" />
+        tools:listitem="@layout/item_customer" />
 
         <Button
-            android:id="@+id/btnAddContacts"
+            android:id="@+id/btnAddCustomer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -55,7 +56,7 @@
             android:background="@drawable/shape_rectangle_yellow"
             android:fontFamily="@font/rhtmedium"
             android:gravity="center"
-            android:text="Add New Contact"
+            android:text="Add New Customer"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/black"

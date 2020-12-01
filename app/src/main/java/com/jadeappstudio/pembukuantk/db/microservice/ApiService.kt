@@ -23,4 +23,13 @@ interface ApiService {
 
     @POST(Constants.ADD_PRODUCT_STOCK_URL)
     fun addProductStock(@Header("Authorization") token: String, @Body productStock: ProductStockModel): Call<AddProductStockResponseModel>
+
+    @GET(Constants.GET_CUSTOMER_ADMIN_URL)
+    fun getCustomersAdmin(@Header("Authorization") token: String): Call<CustomerItemResponse>
+
+    @GET(Constants.GET_CUSTOMER_URL)
+    fun getCustomers(@Header("Authorization") token: String): Call<CustomerItemResponse>
+
+    @POST(Constants.ADD_CUSTOMER_URL)
+    fun addCustomer(@Header("Authorization") token: String, @Body customer: CustomerModel): Call<AddCustomerResponseModel>
 }

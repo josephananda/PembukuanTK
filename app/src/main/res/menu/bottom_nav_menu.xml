@@ -12,9 +12,9 @@
         android:title="@string/title_transactions" />
 
     <item
-        android:id="@+id/navigation_contacts"
+        android:id="@+id/navigation_customer"
         android:icon="@drawable/ic_contacts_24"
-        android:title="@string/title_contacts" />
+        android:title="@string/title_customer" />
 
     <item
         android:id="@+id/navigation_inventory"

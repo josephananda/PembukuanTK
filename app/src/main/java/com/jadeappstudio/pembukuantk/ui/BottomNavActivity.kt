@@ -22,7 +22,7 @@ class BottomNavActivity : AppCompatActivity() {
             setOf(
                 R.id.navigation_dashboard,
                 R.id.navigation_transactions,
-                R.id.navigation_contacts,
+                R.id.navigation_customer,
                 R.id.navigation_inventory,
                 R.id.navigation_profile
             )

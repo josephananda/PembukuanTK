@@ -6,7 +6,7 @@
     <string name="title_activity_bottom_nav">MainActivity</string>
     <string name="title_dashboard">Home</string>
     <string name="title_transactions">Transactions</string>
-    <string name="title_contacts">Contacts</string>
+    <string name="title_customer">Customers</string>
     <string name="title_inventory">Inventory</string>
     <string name="title_profile">Profile</string>
 </resources>
