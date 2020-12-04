@@ -170,4 +170,68 @@ class InventoryRepository {
             return finalResponse
         }
     }
+
+    fun addInvoice(itemList: MutableList<ItemListInvoice>, context: Context): MutableLiveData<AddInvoiceResponseModel>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<AddInvoiceResponseModel>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        var userId = sessionManager.fetchUserId()
+        var userTypeId = sessionManager.fetchUserTypeId()
+        var cust_id = 1
+        val addInvoiceModel = AddInvoiceModel(cust_id, userId, itemList)
+        Log.i("INVOICE: ", "$addInvoiceModel")
+        if(userTypeId == 1){
+            apiService.addInvoiceAdmin("${sessionManager.fetchAuthToken()}", addInvoiceModel)
+                .enqueue(object : Callback<AddInvoiceResponseModel>{
+                    override fun onResponse(
+                        call: Call<AddInvoiceResponseModel>,
+                        response: Response<AddInvoiceResponseModel>
+                    ) {
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AddInvoiceResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        } else {
+            apiService.addInvoice("${sessionManager.fetchAuthToken()}", addInvoiceModel)
+                .enqueue(object : Callback<AddInvoiceResponseModel>{
+                    override fun onResponse(
+                        call: Call<AddInvoiceResponseModel>,
+                        response: Response<AddInvoiceResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AddInvoiceResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        }
+    }
 }

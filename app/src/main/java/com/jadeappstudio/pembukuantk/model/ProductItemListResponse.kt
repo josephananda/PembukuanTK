@@ -4,5 +4,6 @@ data class ProductItemListResponse(
     var id: Int? = 0,
     var name: String? = "",
     var price: String? = "",
-    var stock: Int? = 0
+    var stock: Int? = 0,
+    var quantity: Int? = 0
 )

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    android:layout_marginBottom="?attr/actionBarSize"
     tools:context=".ui.CustomerFragment">
 
     <!--<TextView
@@ -47,21 +47,21 @@
         app:layout_constraintTop_toBottomOf="@id/tvContacts"
         tools:listitem="@layout/item_customer" />
 
-        <Button
-            android:id="@+id/btnAddCustomer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="6"
-            android:background="@drawable/shape_rectangle_yellow"
-            android:fontFamily="@font/rhtmedium"
-            android:gravity="center"
-            android:text="Add New Customer"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+    <Button
+        android:id="@+id/btnAddCustomer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="6"
+        android:background="@drawable/shape_rectangle_yellow"
+        android:fontFamily="@font/rhtmedium"
+        android:gravity="center"
+        android:text="Add New Customer"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

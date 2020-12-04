@@ -32,4 +32,10 @@ interface ApiService {
 
     @POST(Constants.ADD_CUSTOMER_URL)
     fun addCustomer(@Header("Authorization") token: String, @Body customer: CustomerModel): Call<AddCustomerResponseModel>
+
+    @POST(Constants.ADD_INVOICE_ADMIN_URL)
+    fun addInvoiceAdmin(@Header("Authorization") token: String, @Body invoice: AddInvoiceModel): Call<AddInvoiceResponseModel>
+
+    @POST(Constants.ADD_INVOICE_URL)
+    fun addInvoice(@Header("Authorization") token: String, @Body invoice: AddInvoiceModel): Call<AddInvoiceResponseModel>
 }

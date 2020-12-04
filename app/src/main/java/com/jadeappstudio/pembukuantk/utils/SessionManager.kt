@@ -44,4 +44,8 @@ class SessionManager(context: Context){
     fun fetchUserTypeId(): Int? {
         return prefs.getInt(USER_TYPE_ID, 0)
     }
+
+    fun fetchUserId(): Int?{
+        return prefs.getInt(USER_ID, 0)
+    }
 }

@@ -22,24 +22,48 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tvSisaStock"
+            android:id="@+id/tvProductPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:text="Rp 150.000"
             android:fontFamily="@font/rhtmedium"
-            android:text="Sisa Stock: "
             android:textColor="@color/bluePrimary" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvProductPrice"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/rhtmedium"
-        android:text="Rp 150.000"
-        android:textColor="@color/bluePrimary"
-        android:textSize="18sp" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btnMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_remove_circle_24"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:fontFamily="@font/rhtmedium"
+            android:textColor="@color/bluePrimary"/>
+
+        <ImageView
+            android:id="@+id/btnPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_circle_24"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -14,5 +14,8 @@ object Constants {
 
     const val GET_CUSTOMER_ADMIN_URL = "admin/customers"
     const val GET_CUSTOMER_URL = "customers"
-    const val ADD_CUSTOMER_URL = "customers/register"
+    const val ADD_CUSTOMER_URL = "customers"
+
+    const val ADD_INVOICE_ADMIN_URL = "admin/invoice"
+    const val ADD_INVOICE_URL = "invoice"
 }

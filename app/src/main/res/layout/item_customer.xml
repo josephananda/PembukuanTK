@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="081234567890"
+            android:fontFamily="@font/rhtmedium"
             android:textColor="@color/bluePrimary" />
 
     </LinearLayout>
