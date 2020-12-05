@@ -17,20 +17,30 @@ class AddInvoiceActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this).get(AddInvoiceViewModel::class.java)
 
+        tvCustomerName.text = intent.getStringExtra("custName")?: ""
+        tvCustomerPhone.text = intent.getStringExtra("custPhone")?: ""
+        tvCustomerAddress.text = intent.getStringExtra("custAddress")?: ""
+
         btnBack.setOnClickListener {
             onBackPressed()
         }
 
+        btnChooseCustomer.setOnClickListener {
+            startActivity(Intent(this, ChooseCustomerActivity::class.java))
+        }
+
         viewModel.getProduct(this).observe(this, {
-            val adapter = InvoiceItemAdapter(it.data, viewModel, this)
-            rvItems.layoutManager = LinearLayoutManager(this)
-            rvItems.adapter = adapter
+            if (it.data != null) {
+                val adapter = InvoiceItemAdapter(it.data, viewModel, this)
+                rvItems.layoutManager = LinearLayoutManager(this)
+                rvItems.adapter = adapter
+            }
         })
 
         btnConfirm.setOnClickListener {
             btnConfirm.isClickable = false
             if(!viewModel.checkIfZero()) {
-                viewModel.addInvoice(this).observe(this, {
+                viewModel.addInvoice(intent.getIntExtra("custId", 0), this).observe(this, {
                     startActivity(Intent(this, BottomNavActivity::class.java))
                 })
             } else {

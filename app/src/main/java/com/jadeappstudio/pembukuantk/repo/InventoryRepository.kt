@@ -171,15 +171,14 @@ class InventoryRepository {
         }
     }
 
-    fun addInvoice(itemList: MutableList<ItemListInvoice>, context: Context): MutableLiveData<AddInvoiceResponseModel>{
+    fun addInvoice(custId: Int, itemList: MutableList<ItemListInvoice>, context: Context): MutableLiveData<AddInvoiceResponseModel>{
         sessionManager = SessionManager(context)
         val finalResponse = MutableLiveData<AddInvoiceResponseModel>()
         val apiClient = ApiClient()
         apiService = apiClient.create(context)
         var userId = sessionManager.fetchUserId()
         var userTypeId = sessionManager.fetchUserTypeId()
-        var cust_id = 1
-        val addInvoiceModel = AddInvoiceModel(cust_id, userId, itemList)
+        val addInvoiceModel = AddInvoiceModel(custId, userId, itemList)
         Log.i("INVOICE: ", "$addInvoiceModel")
         if(userTypeId == 1){
             apiService.addInvoiceAdmin("${sessionManager.fetchAuthToken()}", addInvoiceModel)

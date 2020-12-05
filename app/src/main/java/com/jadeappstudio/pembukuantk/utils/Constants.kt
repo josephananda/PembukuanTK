@@ -18,4 +18,10 @@ object Constants {
 
     const val ADD_INVOICE_ADMIN_URL = "admin/invoice"
     const val ADD_INVOICE_URL = "invoice"
+
+    const val GET_INVOICE_ADMIN_URL = "admin/invoice"
+    const val GET_INVOICE_URL = "invoice"
+
+    const val GET_INVOICE_DETAIL_ADMIN_URL = "admin/invoice/detail"
+    const val GET_INVOICE_DETAIL_URL = "invoice/detail"
 }

@@ -11,4 +11,5 @@
     <color name="bluePrimary">#000033</color>
     <color name="yellowPrimary">#FEDC5C</color>
     <color name="greyPrimary">#E6E8E6</color>
+    <color name="greySecondary">#A0A0A0</color>
 </resources>

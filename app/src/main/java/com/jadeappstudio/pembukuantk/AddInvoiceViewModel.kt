@@ -117,7 +117,7 @@ class AddInvoiceViewModel : ViewModel() {
         tempUniqueFinal.clear()
     }
 
-    fun addInvoice(context: Context): MutableLiveData<AddInvoiceResponseModel> {
-        return inventoryRepository.addInvoice(finalList, context)
+    fun addInvoice(custId: Int, context: Context): MutableLiveData<AddInvoiceResponseModel> {
+        return inventoryRepository.addInvoice(custId, finalList, context)
     }
 }

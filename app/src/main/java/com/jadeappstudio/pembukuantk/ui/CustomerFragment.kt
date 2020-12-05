@@ -39,8 +39,10 @@ class CustomerFragment : Fragment() {
             )
         }
         customerViewModel.getCustomer(requireContext()).observe(viewLifecycleOwner, {
-            rvCustomer.adapter = CustomerAdapter(it.data)
-            rvCustomer.layoutManager = LinearLayoutManager(requireContext())
+            if (it.data != null) {
+                rvCustomer.adapter = CustomerAdapter(it.data)
+                rvCustomer.layoutManager = LinearLayoutManager(requireContext())
+            }
         })
     }
 }

@@ -5,14 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jadeappstudio.pembukuantk.AddInvoiceActivity
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.adapter.InvoiceAdapter
 import com.jadeappstudio.pembukuantk.viewmodel.TransactionsViewModel
 import kotlinx.android.synthetic.main.fragment_transactions.*
+import java.util.*
 
 class TransactionsFragment : Fragment() {
 
@@ -34,5 +35,13 @@ class TransactionsFragment : Fragment() {
         btnAddInvoice.setOnClickListener {
             startActivity(Intent(requireContext(), AddInvoiceActivity::class.java))
         }
+
+        transactionsViewModel.getInvoice(requireContext()).observe(viewLifecycleOwner, {
+            if (it.data != null) {
+                Collections.reverse(it.data)
+                rvInvoice.adapter = InvoiceAdapter(it.data)
+                rvInvoice.layoutManager = LinearLayoutManager(requireContext())
+            }
+        })
     }
 }

@@ -12,9 +12,6 @@ import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.ProductAdapter
 import com.jadeappstudio.pembukuantk.viewmodel.InventoryViewModel
 import kotlinx.android.synthetic.main.fragment_inventory.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class InventoryFragment : Fragment() {
 
@@ -38,8 +35,10 @@ class InventoryFragment : Fragment() {
             startActivity(Intent(activity, AddProductActivity::class.java))
         }
         inventoryViewModel.getProduct(requireContext()).observe(viewLifecycleOwner, {
-            rvInventory.adapter = ProductAdapter(it.data)
-            rvInventory.layoutManager = LinearLayoutManager(requireContext())
+            if (it.data != null) {
+                rvInventory.adapter = ProductAdapter(it.data)
+                rvInventory.layoutManager = LinearLayoutManager(requireContext())
+            }
         })
     }
 }

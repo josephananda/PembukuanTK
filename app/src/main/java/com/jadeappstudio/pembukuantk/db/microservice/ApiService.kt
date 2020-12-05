@@ -38,4 +38,16 @@ interface ApiService {
 
     @POST(Constants.ADD_INVOICE_URL)
     fun addInvoice(@Header("Authorization") token: String, @Body invoice: AddInvoiceModel): Call<AddInvoiceResponseModel>
+
+    @GET(Constants.GET_INVOICE_ADMIN_URL)
+    fun getInvoiceAdmin(@Header("Authorization") token: String): Call<GetInvoiceResponseModel>
+
+    @GET(Constants.GET_INVOICE_URL)
+    fun getInvoice(@Header("Authorization") token: String): Call<GetInvoiceResponseModel>
+
+    @POST(Constants.GET_INVOICE_DETAIL_ADMIN_URL)
+    fun getInvoiceDetailAdmin(@Header("Authorization") token: String, @Body invoice_id: GetInvoiceDetailModel): Call<InvoiceDetailResp>
+
+    @POST(Constants.GET_INVOICE_DETAIL_URL)
+    fun getInvoiceDetail(@Header("Authorization") token: String, @Body invoice_id:  GetInvoiceDetailModel): Call<InvoiceDetailResp>
 }
