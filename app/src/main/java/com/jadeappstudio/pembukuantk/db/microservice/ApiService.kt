@@ -49,5 +49,8 @@ interface ApiService {
     fun getInvoiceDetailAdmin(@Header("Authorization") token: String, @Body invoice_id: GetInvoiceDetailModel): Call<InvoiceDetailResp>
 
     @POST(Constants.GET_INVOICE_DETAIL_URL)
-    fun getInvoiceDetail(@Header("Authorization") token: String, @Body invoice_id:  GetInvoiceDetailModel): Call<InvoiceDetailResp>
+    fun getInvoiceDetail(@Header("Authorization") token: String, @Body invoice_id: GetInvoiceDetailModel): Call<InvoiceDetailResp>
+
+    @POST(Constants.CHECK_VALID_URL)
+    fun checkValid(@Body token: CheckTokenModel): Call<CheckTokenResponseModel>
 }

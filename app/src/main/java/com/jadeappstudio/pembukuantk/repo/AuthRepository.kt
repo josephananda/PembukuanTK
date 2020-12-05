@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.jadeappstudio.pembukuantk.db.microservice.ApiClient
 import com.jadeappstudio.pembukuantk.db.microservice.ApiService
+import com.jadeappstudio.pembukuantk.model.CheckTokenModel
+import com.jadeappstudio.pembukuantk.model.CheckTokenResponseModel
 import com.jadeappstudio.pembukuantk.model.LoginModel
 import com.jadeappstudio.pembukuantk.model.LoginResponseModel
 import com.jadeappstudio.pembukuantk.utils.SessionManager
@@ -46,6 +48,32 @@ class AuthRepository {
             }
 
             override fun onFailure(call: Call<LoginResponseModel>, error: Throwable) {
+                finalResponse.value = null
+            }
+        })
+        return finalResponse
+    }
+
+    fun checkValid(token: String, context: Context): MutableLiveData<CheckTokenResponseModel>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<CheckTokenResponseModel>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        val check = CheckTokenModel(token)
+        apiService.checkValid(check).enqueue(object : Callback<CheckTokenResponseModel> {
+            override fun onResponse(
+                call: Call<CheckTokenResponseModel>,
+                response: Response<CheckTokenResponseModel>
+            ) {
+                if (response.isSuccessful) {
+                    val responses = response.body()
+                    finalResponse.value = responses
+                } else {
+                    finalResponse.value = null
+                }
+            }
+
+            override fun onFailure(call: Call<CheckTokenResponseModel>, error: Throwable) {
                 finalResponse.value = null
             }
         })

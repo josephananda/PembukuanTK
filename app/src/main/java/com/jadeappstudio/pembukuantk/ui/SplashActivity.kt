@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +17,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-
         val animFadeIn = AnimationUtils.loadAnimation(
             this,
             R.anim.anim_fade_in
@@ -28,7 +28,15 @@ class SplashActivity : AppCompatActivity() {
         val token = viewModel.checkToken(this)
         Handler(Looper.getMainLooper()).postDelayed({
             if (token != "") {
-                startActivity(Intent(this@SplashActivity, BottomNavActivity::class.java))
+                viewModel.checkValid(token, this).observe(this, {
+                    if (it.status.equals("error")) {
+                        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                        viewModel.setDataEmpty(this)
+                    } else if (it.status.equals("success")) {
+                        startActivity(Intent(this@SplashActivity, BottomNavActivity::class.java))
+                        Log.i("RESULT", "${it.message}")
+                    }
+                })
             } else {
                 startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
             }
