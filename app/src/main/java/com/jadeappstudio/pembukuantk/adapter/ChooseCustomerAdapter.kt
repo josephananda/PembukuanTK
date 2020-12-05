@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jadeappstudio.pembukuantk.AddInvoiceActivity
-import com.jadeappstudio.pembukuantk.DetailCustomerActivity
+import com.jadeappstudio.pembukuantk.ui.AddInvoiceActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.model.CustomerItemListResponse
 

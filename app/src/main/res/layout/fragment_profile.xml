@@ -24,6 +24,18 @@
         app:layout_constraintTop_toTopOf="parent" />-->
 
     <Button
+        android:id="@+id/btnUserManagement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Users Management"
+        android:background="@drawable/shape_rectangle_yellow"
+        android:textColor="@color/black"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/btnLogout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

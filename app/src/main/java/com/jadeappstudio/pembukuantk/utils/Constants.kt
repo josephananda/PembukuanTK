@@ -26,4 +26,7 @@ object Constants {
     const val GET_INVOICE_DETAIL_URL = "invoice/detail"
 
     const val CHECK_VALID_URL = "token/expired"
+
+    const val GET_USERS_URL = "admin/users"
+    const val ADD_USERS_URL = "admin/users"
 }

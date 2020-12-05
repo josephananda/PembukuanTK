@@ -32,7 +32,9 @@ class AddCustomerActivity : AppCompatActivity() {
                     Toast.makeText(this, "FAILED TO ADD CUSTOMER", Toast.LENGTH_LONG).show()
                     btnAddCustomer.isClickable = true
                 } else if(it.status.equals("success")){
-                    startActivity(Intent(this, BottomNavActivity::class.java))
+                    val intent = Intent(this, BottomNavActivity::class.java)
+                    intent.putExtra("redirect", 3)
+                    startActivity(intent)
                     finishAffinity()
                 }
             })

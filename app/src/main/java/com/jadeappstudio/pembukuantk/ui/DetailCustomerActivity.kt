@@ -1,7 +1,8 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jadeappstudio.pembukuantk.R
 import kotlinx.android.synthetic.main.activity_detail_customer.*
 
 class DetailCustomerActivity : AppCompatActivity() {

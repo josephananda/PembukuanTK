@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jadeappstudio.pembukuantk.DetailInvoiceActivity
+import com.jadeappstudio.pembukuantk.ui.DetailInvoiceActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.model.InvoiceResp
-import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class InvoiceAdapter(val invoiceResp: List<InvoiceResp>) :
     RecyclerView.Adapter<InvoiceAdapter.InvoiceViewHolder>() {

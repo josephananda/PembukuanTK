@@ -1,19 +1,22 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jadeappstudio.pembukuantk.adapter.ChooseCustomerAdapter
+import com.jadeappstudio.pembukuantk.viewmodel.DetailInvoiceViewModel
+import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.InvoiceDetailAdapter
 import kotlinx.android.synthetic.main.activity_detail_invoice.*
-import kotlinx.android.synthetic.main.fragment_customer.*
 
 class DetailInvoiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_invoice)
+
+        btnBack.setOnClickListener {
+            onBackPressed()
+        }
 
         var invoiceId = intent.getIntExtra("invoiceId", 0)
 

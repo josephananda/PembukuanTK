@@ -1,4 +1,4 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.viewmodel
 
 import android.content.Context
 import android.util.Log

@@ -6,35 +6,44 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    android:layout_marginBottom="?attr/actionBarSize"
-    tools:context=".ui.InventoryFragment">
+    tools:context=".UsersManagementActivity">
 
-    <TextView
-        android:id="@+id/tvInventory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/rhdbold"
-        android:text="Inventory"
-        android:textColor="@color/yellowPrimary"
-        android:textSize="24sp"
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back_yellow_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rhdbold"
+        android:text="Users"
+        android:textColor="@color/yellowPrimary"
+        android:textSize="24sp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@id/btnBack"
+        app:layout_constraintTop_toTopOf="@id/btnBack"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvInventory"
+        android:id="@+id/rvUsers"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/shape_rectangle_white_not_round"
-        app:layout_constraintBottom_toTopOf="@id/btnAddProduct"
+        app:layout_constraintBottom_toTopOf="@id/btnAddUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvInventory"
-        tools:listitem="@layout/item_product" />
+        app:layout_constraintTop_toBottomOf="@id/tvUsers"
+        tools:listitem="@layout/item_user" />
 
     <Button
-        android:id="@+id/btnAddProduct"
+        android:id="@+id/btnAddUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -42,7 +51,7 @@
         android:background="@drawable/shape_rectangle_yellow"
         android:fontFamily="@font/rhtmedium"
         android:gravity="center"
-        android:text="Add Product"
+        android:text="Add User"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"

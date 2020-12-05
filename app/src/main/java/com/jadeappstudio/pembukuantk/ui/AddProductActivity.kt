@@ -30,7 +30,9 @@ class AddProductActivity : AppCompatActivity() {
                     Toast.makeText(this, "FAILED TO ADD PRODUCT", Toast.LENGTH_LONG).show()
                     btnAddProduct.isClickable = true
                 } else if (it.status.equals("success")) {
-                    startActivity(Intent(this, BottomNavActivity::class.java))
+                    val intent = Intent(this, BottomNavActivity::class.java)
+                    intent.putExtra("redirect", 4)
+                    startActivity(intent)
                     finishAffinity()
                 }
             })

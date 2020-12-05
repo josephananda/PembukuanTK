@@ -1,9 +1,10 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.ChooseCustomerAdapter
 import com.jadeappstudio.pembukuantk.viewmodel.CustomerViewModel
 import kotlinx.android.synthetic.main.fragment_customer.*

@@ -1,4 +1,4 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jadeappstudio.pembukuantk.viewmodel.AddInvoiceViewModel
+import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.InvoiceItemAdapter
-import com.jadeappstudio.pembukuantk.ui.BottomNavActivity
 import kotlinx.android.synthetic.main.activity_add_invoice.*
 
 class AddInvoiceActivity : AppCompatActivity() {
@@ -41,7 +42,10 @@ class AddInvoiceActivity : AppCompatActivity() {
             btnConfirm.isClickable = false
             if(!viewModel.checkIfZero()) {
                 viewModel.addInvoice(intent.getIntExtra("custId", 0), this).observe(this, {
-                    startActivity(Intent(this, BottomNavActivity::class.java))
+                    val intent = Intent(this, BottomNavActivity::class.java)
+                    intent.putExtra("redirect", 2)
+                    startActivity(intent)
+                    finishAffinity()
                 })
             } else {
                 viewModel.clearList()

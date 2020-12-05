@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jadeappstudio.pembukuantk.AddInvoiceActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.InvoiceAdapter
 import com.jadeappstudio.pembukuantk.viewmodel.TransactionsViewModel
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_transactions.*
 import java.util.*
 

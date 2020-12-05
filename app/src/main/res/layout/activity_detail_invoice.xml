@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    tools:context=".DetailInvoiceActivity">
+    tools:context=".ui.DetailInvoiceActivity">
 
     <ImageView
         android:id="@+id/btnBack"

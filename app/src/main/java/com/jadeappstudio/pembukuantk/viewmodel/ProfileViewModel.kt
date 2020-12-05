@@ -21,5 +21,8 @@ class ProfileViewModel : ViewModel() {
         sessionManager.saveUsername("")
     }
 
-
+    fun checkUserType(context: Context): Int{
+        val sessionManager = SessionManager(context)
+        return sessionManager.fetchUserTypeId()!!
+    }
 }

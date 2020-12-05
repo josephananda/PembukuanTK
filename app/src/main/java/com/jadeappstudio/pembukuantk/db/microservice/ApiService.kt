@@ -53,4 +53,10 @@ interface ApiService {
 
     @POST(Constants.CHECK_VALID_URL)
     fun checkValid(@Body token: CheckTokenModel): Call<CheckTokenResponseModel>
+
+    @GET(Constants.GET_USERS_URL)
+    fun getUsersAdmin(@Header("Authorization") token: String): Call<GetUsersResponseModel>
+
+    @POST(Constants.ADD_USERS_URL)
+    fun addUserAdmin(@Header("Authorization") token: String, @Body newUser: NewUserModel): Call<AddUsersResponseModel>
 }

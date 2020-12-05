@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PembukuanTK">
-        <activity android:name=".DetailInvoiceActivity"></activity>
-        <activity android:name=".ChooseCustomerActivity" />
-        <activity android:name=".AddInvoiceActivity" />
-        <activity android:name=".DetailCustomerActivity" />
+        <activity android:name=".AddUserActivity"></activity>
+        <activity android:name=".UsersManagementActivity" />
+        <activity android:name=".ui.DetailInvoiceActivity" />
+        <activity android:name=".ui.ChooseCustomerActivity" />
+        <activity android:name=".ui.AddInvoiceActivity" />
+        <activity android:name=".ui.DetailCustomerActivity" />
         <activity android:name=".ui.AddProductStockActivity" />
         <activity android:name=".ui.AddProductActivity" />
         <activity android:name=".ui.AddCustomerActivity" />
