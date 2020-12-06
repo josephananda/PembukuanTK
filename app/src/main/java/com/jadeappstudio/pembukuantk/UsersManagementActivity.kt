@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jadeappstudio.pembukuantk.adapter.UsersAdapter
+import com.jadeappstudio.pembukuantk.ui.BottomNavActivity
 import com.jadeappstudio.pembukuantk.viewmodel.UsersManagementViewModel
 import kotlinx.android.synthetic.main.activity_add_user.*
 import kotlinx.android.synthetic.main.activity_users_management.*
@@ -17,14 +18,16 @@ class UsersManagementActivity : AppCompatActivity() {
         setContentView(R.layout.activity_users_management)
 
         btnBack.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, BottomNavActivity::class.java)
+            intent.putExtra("redirect", 5)
+            startActivity(intent)
         }
 
         btnAddUser.setOnClickListener {
             startActivity(Intent(this, AddUserActivity::class.java))
         }
 
-        var viewModel = ViewModelProvider(this).get(UsersManagementViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(UsersManagementViewModel::class.java)
         viewModel.getUsers(this).observe(this, {
             if(it.data != null) {
                 rvUsers.adapter = UsersAdapter(it.data)
