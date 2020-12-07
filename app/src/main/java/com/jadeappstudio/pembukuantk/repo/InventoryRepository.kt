@@ -22,30 +22,60 @@ class InventoryRepository {
         val apiClient = ApiClient()
         apiService = apiClient.create(context)
         val product = ProductModel(productName, productPrice)
-        apiService.addProduct("${sessionManager.fetchAuthToken()}", product).enqueue(object : Callback<AddProductResponseModel>{
-            override fun onResponse(
-                call: Call<AddProductResponseModel>,
-                response: Response<AddProductResponseModel>
-            ) {
-                Log.i("Response: ", "${response.body()}")
-                if (response.isSuccessful) {
-                    val responses = response.body()
-                    if (!responses?.status.equals("error")) {
-                        finalResponse.value = responses
-                        return
-                    } else {
+        val userType = sessionManager.fetchUserTypeId()
+        if (userType == 1) {
+            apiService.addProductAdmin("${sessionManager.fetchAuthToken()}", product)
+                .enqueue(object : Callback<AddProductResponseModel> {
+                    override fun onResponse(
+                        call: Call<AddProductResponseModel>,
+                        response: Response<AddProductResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AddProductResponseModel>, t: Throwable) {
                         finalResponse.value = null
                     }
-                } else {
-                    finalResponse.value = null
-                }
-            }
+                })
+            return finalResponse
+        } else {
+            apiService.addProduct("${sessionManager.fetchAuthToken()}", product)
+                .enqueue(object : Callback<AddProductResponseModel> {
+                    override fun onResponse(
+                        call: Call<AddProductResponseModel>,
+                        response: Response<AddProductResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
 
-            override fun onFailure(call: Call<AddProductResponseModel>, t: Throwable) {
-                finalResponse.value = null
-            }
-        })
-        return finalResponse
+                    override fun onFailure(call: Call<AddProductResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        }
     }
 
     fun getProduct(context: Context): MutableLiveData<ProductItemResponse>{

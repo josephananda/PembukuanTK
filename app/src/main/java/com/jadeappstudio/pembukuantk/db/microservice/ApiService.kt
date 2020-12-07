@@ -9,6 +9,9 @@ interface ApiService {
     @POST(Constants.LOGIN_URL)
     fun loginUser(@Body info: LoginModel): Call<LoginResponseModel>
 
+    @POST(Constants.ADD_PRODUCT_ADMIN_URL)
+    fun addProductAdmin(@Header("Authorization") token: String, @Body product: ProductModel): Call<AddProductResponseModel>
+
     @POST(Constants.ADD_PRODUCT_URL)
     fun addProduct(@Header("Authorization") token: String, @Body product: ProductModel): Call<AddProductResponseModel>
 
@@ -29,6 +32,9 @@ interface ApiService {
 
     @GET(Constants.GET_CUSTOMER_URL)
     fun getCustomers(@Header("Authorization") token: String): Call<CustomerItemResponse>
+
+    @POST(Constants.ADD_CUSTOMER_ADMIN_URL)
+    fun addCustomerAdmin(@Header("Authorization") token: String, @Body customer: CustomerModel): Call<AddCustomerResponseModel>
 
     @POST(Constants.ADD_CUSTOMER_URL)
     fun addCustomer(@Header("Authorization") token: String, @Body customer: CustomerModel): Call<AddCustomerResponseModel>
