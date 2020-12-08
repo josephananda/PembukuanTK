@@ -12,6 +12,7 @@ import com.jadeappstudio.pembukuantk.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class DashboardRepository {
 
@@ -24,7 +25,7 @@ class DashboardRepository {
         val apiClient = ApiClient()
         apiService = apiClient.create(context)
         val userType = sessionManager.fetchUserTypeId()
-        var year = StatisticYearModel("2020")
+        val year = StatisticYearModel(Calendar.getInstance().get(Calendar.YEAR).toString())
         if(userType == 1) {
             apiService.getStatisticsAdmin("${sessionManager.fetchAuthToken()}", year)
                 .enqueue(object : Callback<GetStatisticsResponse> {

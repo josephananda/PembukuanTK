@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.model.ProductItemListResponse
 import com.jadeappstudio.pembukuantk.ui.AddProductStockActivity
+import com.jadeappstudio.pembukuantk.ui.DetailProductActivity
 
 class ProductAdapter(val productItem: List<ProductItemListResponse>): RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
@@ -29,12 +30,14 @@ class ProductAdapter(val productItem: List<ProductItemListResponse>): RecyclerVi
 
             tvProductName.text = productItem[position].name ?:""
             tvProductPrice.text = "Rp ${productItem[position]?.price?:""}"
-            tvSisaStock.text = "Sisa stock: ${productItem[position]?.stock?: 0}"
+            tvSisaStock.text = "Remaining Stock: ${productItem[position]?.stock?: 0}"
 
             holder.itemView.setOnClickListener{
-                val intent = Intent(context, AddProductStockActivity::class.java)
+                val intent = Intent(context, DetailProductActivity::class.java)
                 intent.putExtra("productId", productItem[position].id)
                 intent.putExtra("productName", productItem[position].name)
+                intent.putExtra("productStock", productItem[position].stock)
+                intent.putExtra("productPrice", productItem[position].price)
                 context.startActivity(intent)
             }
         }

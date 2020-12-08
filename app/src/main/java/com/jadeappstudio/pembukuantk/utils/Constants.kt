@@ -12,11 +12,15 @@ object Constants {
     const val GET_PRODUCT_URL = "products"
     const val ADD_PRODUCT_STOCK_ADMIN_URL = "admin/products/stock"
     const val ADD_PRODUCT_STOCK_URL = "products/stock"
+    const val EDIT_PRODUCT_ADMIN_URL = "admin/products"
+    const val EDIT_PRODUCT_URL = "products"
 
     const val GET_CUSTOMER_ADMIN_URL = "admin/customers"
     const val GET_CUSTOMER_URL = "customers"
     const val ADD_CUSTOMER_ADMIN_URL = "admin/customers"
     const val ADD_CUSTOMER_URL = "customers"
+    const val EDIT_CUSTOMER_ADMIN_URL = "admin/customers"
+    const val EDIT_CUSTOMER_URL = "customers"
 
     const val ADD_INVOICE_ADMIN_URL = "admin/invoice"
     const val ADD_INVOICE_URL = "invoice"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    tools:context=".EditProductActivity">
+    tools:context=".EditCustomerActivity">
 
     <ImageView
         android:id="@+id/btnBack"
@@ -17,12 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvEditProduct"
+        android:id="@+id/tvEditCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/rhdbold"
-        android:text="Edit Product"
+        android:text="Edit Customer"
         android:textColor="@color/yellowPrimary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@id/btnBack"
@@ -36,42 +36,80 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvEditProduct">
+        app:layout_constraintTop_toBottomOf="@id/tvEditCustomer">
 
         <TextView
-            android:id="@+id/tvProductName"
+            android:id="@+id/tvCustomerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/rhdbold"
-            android:text="Product Name"
+            android:text="Customer Name"
             android:textColor="@color/yellowPrimary"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etProductName"
+            android:id="@+id/etCustomerName"
             style="@style/inputRegular"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_input_edit"
-            android:hint="Product Name"
+            android:hint="Name"
             android:importantForAutofill="no"
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/tvProductPrice"
+            android:id="@+id/tvCustomerPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/rhdbold"
-            android:text="Product Price"
+            android:text="Phone Number"
             android:textColor="@color/yellowPrimary"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etProductPrice"
+            android:id="@+id/etCustomerPhone"
             style="@style/inputRegular"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_input_edit"
-            android:hint="Price"
+            android:hint="Phone"
+            android:importantForAutofill="no"
+            android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/tvCustomerEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/rhdbold"
+            android:text="Email Address"
+            android:textColor="@color/yellowPrimary"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etCustomerEmail"
+            style="@style/inputRegular"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_edit"
+            android:hint="Email"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/tvCustomerAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/rhdbold"
+            android:text="Home Address"
+            android:textColor="@color/yellowPrimary"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etCustomerAddress"
+            style="@style/inputRegular"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_edit"
+            android:hint="Address"
             android:importantForAutofill="no"
             android:inputType="text" />
 

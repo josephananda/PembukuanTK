@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PembukuanTK">
-        <activity android:name=".ui.DetailProductActivity"></activity>
+        <activity android:name=".EditCustomerActivity"></activity>
+        <activity android:name=".ui.DetailProductActivity" />
         <activity android:name=".EditProductActivity" />
         <activity android:name=".AddUserActivity" />
         <activity android:name=".UsersManagementActivity" />

@@ -137,4 +137,66 @@ class CustomerRepository {
             return finalResponse
         }
     }
+
+    fun editCustomer(customerId: Int, customerName: String, customerPhone: String, customerEmail: String, customerAddress: String, context: Context): MutableLiveData<AddCustomerResponseModel>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<AddCustomerResponseModel>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        val customer = EditCustomerModel(customerId, customerName, customerPhone, customerEmail, customerAddress)
+        val userType = sessionManager.fetchUserTypeId()
+        if (userType == 1) {
+            apiService.editCustomerAdmin("${sessionManager.fetchAuthToken()}", customer)
+                .enqueue(object : Callback<AddCustomerResponseModel> {
+                    override fun onResponse(
+                        call: Call<AddCustomerResponseModel>,
+                        response: Response<AddCustomerResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AddCustomerResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        } else {
+            apiService.editCustomer("${sessionManager.fetchAuthToken()}", customer)
+                .enqueue(object : Callback<AddCustomerResponseModel> {
+                    override fun onResponse(
+                        call: Call<AddCustomerResponseModel>,
+                        response: Response<AddCustomerResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AddCustomerResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        }
+    }
 }

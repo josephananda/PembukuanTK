@@ -30,6 +30,7 @@ class AddProductStockActivity : AppCompatActivity() {
                     btnAddProductStock.isClickable = false
                 } else if (it.status.equals("success")) {
                     val intent = Intent(this, BottomNavActivity::class.java)
+                    intent.putExtra("redirect", 4)
                     startActivity(intent)
                     finishAffinity()
                 }

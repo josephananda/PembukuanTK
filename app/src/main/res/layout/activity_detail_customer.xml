@@ -120,4 +120,36 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnEditCustomer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_yellow"
+        android:fontFamily="@font/rhtmedium"
+        android:gravity="center"
+        android:text="Edit Customer"
+        android:textAlignment="center"
+        android:layout_marginBottom="12dp"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/btnDeleteCustomer"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnDeleteCustomer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_yellow"
+        android:fontFamily="@font/rhtmedium"
+        android:gravity="center"
+        android:text="Delete Customer"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,12 @@ interface ApiService {
     @GET(Constants.GET_PRODUCT_URL)
     fun getProduct(@Header("Authorization") token: String): Call<ProductItemResponse>
 
+    @PUT(Constants.EDIT_PRODUCT_ADMIN_URL)
+    fun editProductAdmin(@Header("Authorization") token: String, @Body product: EditProductModel): Call<AddProductResponseModel>
+
+    @PUT(Constants.EDIT_PRODUCT_URL)
+    fun editProduct(@Header("Authorization") token: String, @Body product: EditProductModel): Call<AddProductResponseModel>
+
     @POST(Constants.ADD_PRODUCT_STOCK_ADMIN_URL)
     fun addProductStockAdmin(@Header("Authorization") token: String, @Body productStock: ProductStockModel): Call<AddProductStockResponseModel>
 
@@ -38,6 +44,12 @@ interface ApiService {
 
     @POST(Constants.ADD_CUSTOMER_URL)
     fun addCustomer(@Header("Authorization") token: String, @Body customer: CustomerModel): Call<AddCustomerResponseModel>
+
+    @PUT(Constants.EDIT_CUSTOMER_ADMIN_URL)
+    fun editCustomerAdmin(@Header("Authorization") token: String, @Body customer: EditCustomerModel): Call<AddCustomerResponseModel>
+
+    @PUT(Constants.EDIT_CUSTOMER_URL)
+    fun editCustomer(@Header("Authorization") token: String, @Body customer: EditCustomerModel): Call<AddCustomerResponseModel>
 
     @POST(Constants.ADD_INVOICE_ADMIN_URL)
     fun addInvoiceAdmin(@Header("Authorization") token: String, @Body invoice: AddInvoiceModel): Call<AddInvoiceResponseModel>

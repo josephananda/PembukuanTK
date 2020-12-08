@@ -13,6 +13,8 @@ import com.github.mikephil.charting.utils.ColorTemplate
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.viewmodel.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DashboardFragment : Fragment() {
 
@@ -40,7 +42,7 @@ class DashboardFragment : Fragment() {
                 for (i in 0..it.data.detail.size - 1) {
                     entries.add(BarEntry(it.data.detail[i].profit!!.toFloat(), i))
                 }
-                val barDataSet = BarDataSet(entries, "2020")
+                val barDataSet = BarDataSet(entries, Calendar.getInstance().get(Calendar.YEAR).toString())
 
                 val labels = arrayListOf(
                     "Jan",
