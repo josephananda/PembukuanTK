@@ -1,13 +1,15 @@
 package com.jadeappstudio.pembukuantk.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.jadeappstudio.pembukuantk.model.GetStatisticsResponse
+import com.jadeappstudio.pembukuantk.repo.DashboardRepository
 
 class DashboardViewModel : ViewModel() {
+    private val dashboardRepository = DashboardRepository()
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    fun getStatistics(context: Context): LiveData<GetStatisticsResponse>{
+        return dashboardRepository.getStatistics(context)
     }
-    val text: LiveData<String> = _text
 }

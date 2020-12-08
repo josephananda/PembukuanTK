@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PembukuanTK">
-        <activity android:name=".AddUserActivity"></activity>
+        <activity android:name=".ui.DetailProductActivity"></activity>
+        <activity android:name=".EditProductActivity" />
+        <activity android:name=".AddUserActivity" />
         <activity android:name=".UsersManagementActivity" />
         <activity android:name=".ui.DetailInvoiceActivity" />
         <activity android:name=".ui.ChooseCustomerActivity" />
@@ -23,7 +25,6 @@
         <activity
             android:name=".ui.BottomNavActivity"
             android:label="@string/title_activity_bottom_nav" />
-        <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.SplashActivity">
             <intent-filter>

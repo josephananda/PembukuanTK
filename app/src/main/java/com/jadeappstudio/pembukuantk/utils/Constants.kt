@@ -31,4 +31,7 @@ object Constants {
 
     const val GET_USERS_URL = "admin/users"
     const val ADD_USERS_URL = "admin/users"
+
+    const val GET_STATISTICS_ADMIN_URL = "admin/statistics"
+    const val GET_STATISTICS_URL = "statistics"
 }

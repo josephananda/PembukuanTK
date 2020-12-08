@@ -65,4 +65,10 @@ interface ApiService {
 
     @POST(Constants.ADD_USERS_URL)
     fun addUserAdmin(@Header("Authorization") token: String, @Body newUser: NewUserModel): Call<AddUsersResponseModel>
+
+    @POST(Constants.GET_STATISTICS_ADMIN_URL)
+    fun getStatisticsAdmin(@Header("Authorization") token: String, @Body getStats: StatisticYearModel): Call<GetStatisticsResponse>
+
+    @POST(Constants.GET_STATISTICS_URL)
+    fun getStatistics(@Header("Authorization") token: String, @Body getStats: StatisticYearModel): Call<GetStatisticsResponse>
 }
