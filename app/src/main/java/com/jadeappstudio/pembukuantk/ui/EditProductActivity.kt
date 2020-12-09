@@ -1,11 +1,12 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.ui.BottomNavActivity
+import com.jadeappstudio.pembukuantk.viewmodel.EditProductViewModel
+import com.jadeappstudio.pembukuantk.R
 import kotlinx.android.synthetic.main.activity_edit_product.*
 
 class EditProductActivity : AppCompatActivity() {

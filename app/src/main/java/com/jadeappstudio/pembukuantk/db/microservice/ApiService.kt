@@ -78,6 +78,9 @@ interface ApiService {
     @POST(Constants.ADD_USERS_URL)
     fun addUserAdmin(@Header("Authorization") token: String, @Body newUser: NewUserModel): Call<AddUsersResponseModel>
 
+    @PUT(Constants.EDIT_USERS_URL)
+    fun editUserAdmin(@Header("Authorization") token: String, @Body editUser: EditUserModel): Call<AddUsersResponseModel>
+
     @POST(Constants.GET_STATISTICS_ADMIN_URL)
     fun getStatisticsAdmin(@Header("Authorization") token: String, @Body getStats: StatisticYearModel): Call<GetStatisticsResponse>
 

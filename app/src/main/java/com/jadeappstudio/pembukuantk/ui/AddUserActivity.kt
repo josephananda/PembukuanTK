@@ -1,11 +1,12 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.ui.BottomNavActivity
+import com.jadeappstudio.pembukuantk.viewmodel.AddUserViewModel
+import com.jadeappstudio.pembukuantk.R
 import kotlinx.android.synthetic.main.activity_add_customer.*
 import kotlinx.android.synthetic.main.activity_add_user.*
 import kotlinx.android.synthetic.main.activity_add_user.btnBack

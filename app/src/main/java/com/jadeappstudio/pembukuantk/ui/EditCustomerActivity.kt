@@ -1,12 +1,12 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.ui.BottomNavActivity
-import com.jadeappstudio.pembukuantk.viewmodel.AddCustomerViewModel
+import com.jadeappstudio.pembukuantk.viewmodel.EditCustomerViewModel
+import com.jadeappstudio.pembukuantk.R
 import kotlinx.android.synthetic.main.activity_edit_customer.*
 
 class EditCustomerActivity : AppCompatActivity() {

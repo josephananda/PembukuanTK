@@ -78,4 +78,36 @@ class UsersRepository {
             })
         return finalResponse
     }
+
+    fun editUser(userId: Int, username: String, password: String, context: Context): MutableLiveData<AddUsersResponseModel>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<AddUsersResponseModel>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        val editUser = EditUserModel(userId, username, password)
+        apiService.editUserAdmin("${sessionManager.fetchAuthToken()}", editUser).enqueue(object : Callback<AddUsersResponseModel>{
+            override fun onResponse(
+                call: Call<AddUsersResponseModel>,
+                response: Response<AddUsersResponseModel>
+            ) {
+                Log.i("Response: ", "${response.body()}")
+                if (response.isSuccessful) {
+                    val responses = response.body()
+                    if (!responses?.status.equals("error")) {
+                        finalResponse.value = responses
+                        return
+                    } else {
+                        finalResponse.value = null
+                    }
+                } else {
+                    finalResponse.value = null
+                }
+            }
+
+            override fun onFailure(call: Call<AddUsersResponseModel>, t: Throwable) {
+                finalResponse.value = null
+            }
+        })
+        return finalResponse
+    }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bluePrimary"
     android:padding="30dp"
-    tools:context=".EditProductActivity">
+    tools:context=".ui.EditProductActivity">
 
     <ImageView
         android:id="@+id/btnBack"

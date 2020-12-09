@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.jadeappstudio.pembukuantk.R
-import com.jadeappstudio.pembukuantk.UsersManagementActivity
 import com.jadeappstudio.pembukuantk.viewmodel.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
 

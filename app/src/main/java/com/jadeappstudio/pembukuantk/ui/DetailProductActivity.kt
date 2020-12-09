@@ -3,12 +3,9 @@ package com.jadeappstudio.pembukuantk.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jadeappstudio.pembukuantk.EditProductActivity
 import com.jadeappstudio.pembukuantk.R
-import kotlinx.android.synthetic.main.activity_add_product.*
 import kotlinx.android.synthetic.main.activity_add_product.btnBack
 import kotlinx.android.synthetic.main.activity_add_product.tvProductName
-import kotlinx.android.synthetic.main.activity_add_product_stock.*
 import kotlinx.android.synthetic.main.activity_add_product_stock.btnAddProductStock
 import kotlinx.android.synthetic.main.activity_detail_product.*
 

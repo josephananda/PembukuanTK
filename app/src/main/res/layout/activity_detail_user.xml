@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bluePrimary"
+    android:padding="30dp"
+    tools:context=".ui.DetailUserActivity">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back_yellow_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAddProductStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/rhdbold"
+        android:text="User Detail"
+        android:textColor="@color/yellowPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
+        app:layout_constraintStart_toEndOf="@id/btnBack"
+        app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rhdbold"
+        android:layout_marginTop="60dp"
+        android:text="Username:"
+        android:textColor="@color/yellowPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rhdbold"
+        android:layout_marginStart="8dp"
+        android:text=""
+        android:textColor="@color/yellowPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvUser"
+        app:layout_constraintTop_toTopOf="@id/tvUser"/>
+
+    <TextView
+        android:id="@+id/tvUserPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rhdbold"
+        android:layout_marginTop="30dp"
+        android:text="Password:"
+        android:textColor="@color/yellowPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUsername" />
+
+    <TextView
+        android:id="@+id/tvUserPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rhdbold"
+        android:layout_marginStart="8dp"
+        android:text="********"
+        android:textColor="@color/yellowPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/tvUserPass"
+        app:layout_constraintTop_toTopOf="@id/tvUserPass"/>
+
+    <Button
+        android:id="@+id/btnEditUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_yellow"
+        android:fontFamily="@font/rhtmedium"
+        android:gravity="center"
+        android:text="Edit User"
+        android:textAlignment="center"
+        android:layout_marginBottom="12dp"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/btnDeleteUser"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnDeleteUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_yellow"
+        android:fontFamily="@font/rhtmedium"
+        android:gravity="center"
+        android:text="Delete User"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

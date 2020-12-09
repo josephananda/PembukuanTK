@@ -1,14 +1,13 @@
-package com.jadeappstudio.pembukuantk
+package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.UsersAdapter
-import com.jadeappstudio.pembukuantk.ui.BottomNavActivity
 import com.jadeappstudio.pembukuantk.viewmodel.UsersManagementViewModel
-import kotlinx.android.synthetic.main.activity_add_user.*
 import kotlinx.android.synthetic.main.activity_users_management.*
 import kotlinx.android.synthetic.main.activity_users_management.btnBack
 
