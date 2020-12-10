@@ -199,4 +199,66 @@ class CustomerRepository {
             return finalResponse
         }
     }
+
+    fun deleteCustomer(customerId: Int, context: Context): MutableLiveData<DeleteResponseModel>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<DeleteResponseModel>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        val customer = DeleteModel(customerId)
+        val userType = sessionManager.fetchUserTypeId()
+        if (userType == 1) {
+            apiService.deleteCustomerAdmin("${sessionManager.fetchAuthToken()}", customer)
+                .enqueue(object : Callback<DeleteResponseModel> {
+                    override fun onResponse(
+                        call: Call<DeleteResponseModel>,
+                        response: Response<DeleteResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<DeleteResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        } else {
+            apiService.deleteCustomer("${sessionManager.fetchAuthToken()}", customer)
+                .enqueue(object : Callback<DeleteResponseModel> {
+                    override fun onResponse(
+                        call: Call<DeleteResponseModel>,
+                        response: Response<DeleteResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<DeleteResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        }
+    }
 }

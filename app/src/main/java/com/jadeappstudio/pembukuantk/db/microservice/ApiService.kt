@@ -33,6 +33,12 @@ interface ApiService {
     @POST(Constants.ADD_PRODUCT_STOCK_URL)
     fun addProductStock(@Header("Authorization") token: String, @Body productStock: ProductStockModel): Call<AddProductStockResponseModel>
 
+    @POST(Constants.DELETE_PRODUCT_ADMIN_URL)
+    fun deleteProductAdmin(@Header("Authorization") token: String, @Body delete: DeleteModel): Call<DeleteResponseModel>
+
+    @POST(Constants.DELETE_PRODUCT_URL)
+    fun deleteProduct(@Header("Authorization") token: String, @Body delete: DeleteModel): Call<DeleteResponseModel>
+
     @GET(Constants.GET_CUSTOMER_ADMIN_URL)
     fun getCustomersAdmin(@Header("Authorization") token: String): Call<CustomerItemResponse>
 
@@ -50,6 +56,12 @@ interface ApiService {
 
     @PUT(Constants.EDIT_CUSTOMER_URL)
     fun editCustomer(@Header("Authorization") token: String, @Body customer: EditCustomerModel): Call<AddCustomerResponseModel>
+
+    @POST(Constants.DELETE_CUSTOMER_ADMIN_URL)
+    fun deleteCustomerAdmin(@Header("Authorization") token: String, @Body delete: DeleteModel): Call<DeleteResponseModel>
+
+    @POST(Constants.DELETE_CUSTOMER_URL)
+    fun deleteCustomer(@Header("Authorization") token: String, @Body delete: DeleteModel): Call<DeleteResponseModel>
 
     @POST(Constants.ADD_INVOICE_ADMIN_URL)
     fun addInvoiceAdmin(@Header("Authorization") token: String, @Body invoice: AddInvoiceModel): Call<AddInvoiceResponseModel>
@@ -80,6 +92,9 @@ interface ApiService {
 
     @PUT(Constants.EDIT_USERS_URL)
     fun editUserAdmin(@Header("Authorization") token: String, @Body editUser: EditUserModel): Call<AddUsersResponseModel>
+
+    @POST(Constants.DELETE_USERS_URL)
+    fun deleteUser(@Header("Authorization") token: String, @Body delete: DeleteModel): Call<DeleteResponseModel>
 
     @POST(Constants.GET_STATISTICS_ADMIN_URL)
     fun getStatisticsAdmin(@Header("Authorization") token: String, @Body getStats: StatisticYearModel): Call<GetStatisticsResponse>

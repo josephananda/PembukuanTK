@@ -1,9 +1,12 @@
 package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.viewmodel.DetailCustomerViewModel
 import kotlinx.android.synthetic.main.activity_detail_customer.*
 
 class DetailCustomerActivity : AppCompatActivity() {
@@ -34,6 +37,24 @@ class DetailCustomerActivity : AppCompatActivity() {
             intent.putExtra("customerEmail", customerEmail)
             intent.putExtra("customerAddress", customerAddress)
             startActivity(intent)
+        }
+
+        btnDeleteCustomer.setOnClickListener {
+            btnDeleteCustomer.isClickable = false
+
+            val viewModel = ViewModelProvider(this).get(DetailCustomerViewModel::class.java)
+            viewModel.deleteCustomer(customerId, this)?.observe(this, {
+                if (it == null) {
+                    Toast.makeText(this, "FAILED TO DELETE CUSTOMER", Toast.LENGTH_LONG).show()
+                    btnDeleteCustomer.isClickable = true
+                } else if (it.status.equals("success")) {
+                    Toast.makeText(this, "${it.message}", Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, BottomNavActivity::class.java)
+                    intent.putExtra("redirect", 3)
+                    startActivity(intent)
+                    finishAffinity()
+                }
+            })
         }
     }
 }

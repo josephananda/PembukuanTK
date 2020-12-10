@@ -145,7 +145,8 @@ class InventoryRepository {
         val apiClient = ApiClient()
         apiService = apiClient.create(context)
         var userType = sessionManager.fetchUserTypeId()
-        val productStock = ProductStockModel(productId, productQuantity, userType)
+        var userId = sessionManager.fetchUserId()
+        val productStock = ProductStockModel(productId, productQuantity, userId)
         if(userType == 1) {
             apiService.addProductStockAdmin("${sessionManager.fetchAuthToken()}", productStock)
                 .enqueue(object : Callback<AddProductStockResponseModel> {
@@ -319,6 +320,68 @@ class InventoryRepository {
                     }
 
                     override fun onFailure(call: Call<AddProductResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        }
+    }
+
+    fun deleteProduct(productId: Int, context: Context): MutableLiveData<DeleteResponseModel>{
+        sessionManager = SessionManager(context)
+        val finalResponse = MutableLiveData<DeleteResponseModel>()
+        val apiClient = ApiClient()
+        apiService = apiClient.create(context)
+        val product = DeleteModel(productId)
+        val userType = sessionManager.fetchUserTypeId()
+        if (userType == 1) {
+            apiService.deleteProductAdmin("${sessionManager.fetchAuthToken()}", product)
+                .enqueue(object : Callback<DeleteResponseModel> {
+                    override fun onResponse(
+                        call: Call<DeleteResponseModel>,
+                        response: Response<DeleteResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<DeleteResponseModel>, t: Throwable) {
+                        finalResponse.value = null
+                    }
+                })
+            return finalResponse
+        } else {
+            apiService.deleteProduct("${sessionManager.fetchAuthToken()}", product)
+                .enqueue(object : Callback<DeleteResponseModel> {
+                    override fun onResponse(
+                        call: Call<DeleteResponseModel>,
+                        response: Response<DeleteResponseModel>
+                    ) {
+                        Log.i("Response: ", "${response.body()}")
+                        if (response.isSuccessful) {
+                            val responses = response.body()
+                            if (!responses?.status.equals("error")) {
+                                finalResponse.value = responses
+                                return
+                            } else {
+                                finalResponse.value = null
+                            }
+                        } else {
+                            finalResponse.value = null
+                        }
+                    }
+
+                    override fun onFailure(call: Call<DeleteResponseModel>, t: Throwable) {
                         finalResponse.value = null
                     }
                 })

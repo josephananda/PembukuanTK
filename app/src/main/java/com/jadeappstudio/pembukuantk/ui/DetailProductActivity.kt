@@ -1,9 +1,12 @@
 package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.viewmodel.DetailProductViewModel
 import kotlinx.android.synthetic.main.activity_add_product.btnBack
 import kotlinx.android.synthetic.main.activity_add_product.tvProductName
 import kotlinx.android.synthetic.main.activity_add_product_stock.btnAddProductStock
@@ -41,6 +44,24 @@ class DetailProductActivity : AppCompatActivity() {
             intent.putExtra("productName", productName)
             intent.putExtra("productPrice", productPrice)
             startActivity(intent)
+        }
+
+        btnDeleteProduct.setOnClickListener {
+            btnDeleteProduct.isClickable = false
+
+            val viewModel = ViewModelProvider(this).get(DetailProductViewModel::class.java)
+            viewModel.deleteProduct(productId, this)?.observe(this, {
+                if (it == null) {
+                    Toast.makeText(this, "FAILED TO DELETE PRODUCT", Toast.LENGTH_LONG).show()
+                    btnDeleteProduct.isClickable = true
+                } else if (it.status.equals("success")) {
+                    Toast.makeText(this, "${it.message}", Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, BottomNavActivity::class.java)
+                    intent.putExtra("redirect", 4)
+                    startActivity(intent)
+                    finishAffinity()
+                }
+            })
         }
     }
 }
