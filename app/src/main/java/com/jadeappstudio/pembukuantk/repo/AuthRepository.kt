@@ -68,7 +68,7 @@ class AuthRepository {
         return finalResponse
     }
 
-    fun checkValid(token: String, context: Context): MutableLiveData<CheckTokenResponseModel>{
+    fun checkValid(token: String, context: Context): MutableLiveData<CheckTokenResponseModel> {
         sessionManager = SessionManager(context)
         val finalResponse = MutableLiveData<CheckTokenResponseModel>()
         val apiClient = ApiClient()

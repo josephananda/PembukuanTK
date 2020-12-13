@@ -20,13 +20,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jadeappstudio.pembukuantk.ui.DetailInvoiceActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.model.InvoiceResp
+import com.jadeappstudio.pembukuantk.ui.DetailInvoiceActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
-class InvoiceAdapter(val invoiceResp: List<InvoiceResp>) :
+class InvoiceAdapter(private val invoiceResp: List<InvoiceResp>) :
     RecyclerView.Adapter<InvoiceAdapter.InvoiceViewHolder>() {
 
     inner class InvoiceViewHolder(items: View) : RecyclerView.ViewHolder(items)
@@ -44,12 +44,12 @@ class InvoiceAdapter(val invoiceResp: List<InvoiceResp>) :
             val tvTotalPrice = findViewById<TextView>(R.id.tvTotalPrice)
 
             tvInvoiceNumber.text = "Invoice#${invoiceResp[position].id}"
-            var time = invoiceResp[position].updated_at ?: ""
-            var convertedTime = convertLongToTime(time.toLong())
+            val time = invoiceResp[position].updated_at ?: ""
+            val convertedTime = convertLongToTime(time.toLong())
             tvTimeStamp.text = convertedTime
             tvTotalPrice.text = "Rp ${invoiceResp[position].total_invoice_price}"
 
-            holder.itemView.setOnClickListener{
+            holder.itemView.setOnClickListener {
                 val intent = Intent(context, DetailInvoiceActivity::class.java)
                 intent.putExtra("invoiceId", invoiceResp[position].id)
                 intent.putExtra("customerName", invoiceResp[position].customer_name)

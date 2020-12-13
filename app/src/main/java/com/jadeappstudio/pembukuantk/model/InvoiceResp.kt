@@ -14,8 +14,6 @@
 
 package com.jadeappstudio.pembukuantk.model
 
-import java.io.Serializable
-
 data class InvoiceResp(
     var id: Int? = 0,
     var customer_name: String? = "",

@@ -92,7 +92,7 @@ class TransactionsRepository {
         }
     }
 
-    fun getInvDetail(invoiceId: Int, context: Context): MutableLiveData<InvoiceDetailResp>{
+    fun getInvDetail(invoiceId: Int, context: Context): MutableLiveData<InvoiceDetailResp> {
         sessionManager = SessionManager(context)
         val finalResponse = MutableLiveData<InvoiceDetailResp>()
         val apiClient = ApiClient()

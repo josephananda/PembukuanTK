@@ -22,14 +22,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.model.ItemInvoice
 
-class InvoiceDetailAdapter(val itemInvoice: List<ItemInvoice>) :
+class InvoiceDetailAdapter(private val itemInvoice: List<ItemInvoice>) :
     RecyclerView.Adapter<InvoiceDetailAdapter.InvoiceDetailViewHolder>() {
 
     inner class InvoiceDetailViewHolder(items: View) : RecyclerView.ViewHolder(items)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InvoiceDetailViewHolder {
         val layoutInflater =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_product_invoice, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_product_invoice, parent, false)
         return InvoiceDetailViewHolder(layoutInflater)
     }
 
@@ -40,7 +41,8 @@ class InvoiceDetailAdapter(val itemInvoice: List<ItemInvoice>) :
             val tvTotalPrice = findViewById<TextView>(R.id.tvTotalPrice)
 
             tvProductName.text = "${itemInvoice[position].product_name}"
-            tvProductQuantityAndPrice.text = "${itemInvoice[position].product_qty} x @${itemInvoice[position].product_price}"
+            tvProductQuantityAndPrice.text =
+                "${itemInvoice[position].product_qty} x @${itemInvoice[position].product_price}"
             tvTotalPrice.text = "Rp ${itemInvoice[position].product_total_price}"
         }
     }

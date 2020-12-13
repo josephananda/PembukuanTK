@@ -20,11 +20,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jadeappstudio.pembukuantk.ui.DetailUserActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.model.UsersModel
+import com.jadeappstudio.pembukuantk.ui.DetailUserActivity
 
-class UsersAdapter(val users: List<UsersModel>) :
+class UsersAdapter(private val users: List<UsersModel>) :
     RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
     inner class UsersViewHolder(items: View) : RecyclerView.ViewHolder(items)
@@ -41,7 +41,7 @@ class UsersAdapter(val users: List<UsersModel>) :
 
             tvUsername.text = users[position].username
 
-            holder.itemView.setOnClickListener{
+            holder.itemView.setOnClickListener {
                 val intent = Intent(context, DetailUserActivity::class.java)
                 intent.putExtra("userId", users[position].id)
                 intent.putExtra("username", users[position].username)

@@ -29,7 +29,13 @@ class CustomerRepository {
     private lateinit var apiService: ApiService
     private lateinit var sessionManager: SessionManager
 
-    fun addCustomer(customerName: String, customerPhone: String, customerEmail: String, customerAddress: String, context: Context): MutableLiveData<AddCustomerResponseModel>{
+    fun addCustomer(
+        customerName: String,
+        customerPhone: String,
+        customerEmail: String,
+        customerAddress: String,
+        context: Context
+    ): MutableLiveData<AddCustomerResponseModel> {
         sessionManager = SessionManager(context)
         val finalResponse = MutableLiveData<AddCustomerResponseModel>()
         val apiClient = ApiClient()
@@ -97,7 +103,7 @@ class CustomerRepository {
         val apiClient = ApiClient()
         apiService = apiClient.create(context)
         val userType = sessionManager.fetchUserTypeId()
-        if(userType == 1) {
+        if (userType == 1) {
             apiService.getCustomersAdmin("${sessionManager.fetchAuthToken()}")
                 .enqueue(object : Callback<CustomerItemResponse> {
                     override fun onResponse(
@@ -152,12 +158,25 @@ class CustomerRepository {
         }
     }
 
-    fun editCustomer(customerId: Int, customerName: String, customerPhone: String, customerEmail: String, customerAddress: String, context: Context): MutableLiveData<AddCustomerResponseModel>{
+    fun editCustomer(
+        customerId: Int,
+        customerName: String,
+        customerPhone: String,
+        customerEmail: String,
+        customerAddress: String,
+        context: Context
+    ): MutableLiveData<AddCustomerResponseModel> {
         sessionManager = SessionManager(context)
         val finalResponse = MutableLiveData<AddCustomerResponseModel>()
         val apiClient = ApiClient()
         apiService = apiClient.create(context)
-        val customer = EditCustomerModel(customerId, customerName, customerPhone, customerEmail, customerAddress)
+        val customer = EditCustomerModel(
+            customerId,
+            customerName,
+            customerPhone,
+            customerEmail,
+            customerAddress
+        )
         val userType = sessionManager.fetchUserTypeId()
         if (userType == 1) {
             apiService.editCustomerAdmin("${sessionManager.fetchAuthToken()}", customer)
@@ -214,7 +233,7 @@ class CustomerRepository {
         }
     }
 
-    fun deleteCustomer(customerId: Int, context: Context): MutableLiveData<DeleteResponseModel>{
+    fun deleteCustomer(customerId: Int, context: Context): MutableLiveData<DeleteResponseModel> {
         sessionManager = SessionManager(context)
         val finalResponse = MutableLiveData<DeleteResponseModel>()
         val apiClient = ApiClient()

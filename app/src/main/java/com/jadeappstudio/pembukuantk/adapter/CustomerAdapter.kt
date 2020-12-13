@@ -20,28 +20,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jadeappstudio.pembukuantk.ui.DetailCustomerActivity
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.model.CustomerItemListResponse
+import com.jadeappstudio.pembukuantk.ui.DetailCustomerActivity
 
-class CustomerAdapter(val customerItem: List<CustomerItemListResponse>): RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder>() {
+class CustomerAdapter(private val customerItem: List<CustomerItemListResponse>) :
+    RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder>() {
 
-    inner class CustomerViewHolder(items: View): RecyclerView.ViewHolder(items)
+    inner class CustomerViewHolder(items: View) : RecyclerView.ViewHolder(items)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomerViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.item_customer, parent, false)
+        val layoutInflater =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_customer, parent, false)
         return CustomerViewHolder(layoutInflater)
     }
 
     override fun onBindViewHolder(holder: CustomerViewHolder, position: Int) {
-        holder.itemView.apply{
+        holder.itemView.apply {
             val tvCustomerName = findViewById<TextView>(R.id.tvCustomerName)
             val tvCustomerPhone = findViewById<TextView>(R.id.tvCustomerPhone)
 
-            tvCustomerName.text = customerItem[position].name?: ""
-            tvCustomerPhone.text = customerItem[position].phone?:""
+            tvCustomerName.text = customerItem[position].name ?: ""
+            tvCustomerPhone.text = customerItem[position].phone ?: ""
 
-            holder.itemView.setOnClickListener{
+            holder.itemView.setOnClickListener {
                 val intent = Intent(context, DetailCustomerActivity::class.java)
                 intent.putExtra("customerId", customerItem[position].id)
                 intent.putExtra("customerName", customerItem[position].name)

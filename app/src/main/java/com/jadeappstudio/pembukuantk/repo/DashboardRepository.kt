@@ -19,7 +19,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.jadeappstudio.pembukuantk.db.microservice.ApiClient
 import com.jadeappstudio.pembukuantk.db.microservice.ApiService
-import com.jadeappstudio.pembukuantk.model.CustomerItemResponse
 import com.jadeappstudio.pembukuantk.model.GetStatisticsResponse
 import com.jadeappstudio.pembukuantk.model.StatisticYearModel
 import com.jadeappstudio.pembukuantk.utils.SessionManager
@@ -40,7 +39,7 @@ class DashboardRepository {
         apiService = apiClient.create(context)
         val userType = sessionManager.fetchUserTypeId()
         val year = StatisticYearModel(Calendar.getInstance().get(Calendar.YEAR).toString())
-        if(userType == 1) {
+        if (userType == 1) {
             apiService.getStatisticsAdmin("${sessionManager.fetchAuthToken()}", year)
                 .enqueue(object : Callback<GetStatisticsResponse> {
                     override fun onResponse(
