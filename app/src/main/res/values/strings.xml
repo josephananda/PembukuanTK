@@ -23,4 +23,17 @@
     <string name="title_customer">Customers</string>
     <string name="title_inventory">Inventory</string>
     <string name="title_profile">Profile</string>
+
+    <string name="backButton">Back Button</string>
+
+    <string name="addNewCustomer">Add New Customer</string>
+    <string name="customerName">Customer Name</string>
+    <string name="name">Name</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="phone">Phone</string>
+    <string name="emailAddress">Email Address</string>
+    <string name="email">Email</string>
+    <string name="homeAddress">Home Address</string>
+    <string name="address">Address</string>
+    <string name="addCustomer">Add Customer</string>
 </resources>
