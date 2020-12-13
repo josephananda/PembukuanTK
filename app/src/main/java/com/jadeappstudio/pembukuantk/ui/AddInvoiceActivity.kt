@@ -20,9 +20,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jadeappstudio.pembukuantk.viewmodel.AddInvoiceViewModel
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.InvoiceItemAdapter
+import com.jadeappstudio.pembukuantk.viewmodel.AddInvoiceViewModel
 import kotlinx.android.synthetic.main.activity_add_invoice.*
 
 class AddInvoiceActivity : AppCompatActivity() {
@@ -32,9 +32,9 @@ class AddInvoiceActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this).get(AddInvoiceViewModel::class.java)
 
-        tvCustomerName.text = intent.getStringExtra("custName")?: ""
-        tvCustomerPhone.text = intent.getStringExtra("custPhone")?: ""
-        tvCustomerAddress.text = intent.getStringExtra("custAddress")?: ""
+        tvCustomerName.text = intent.getStringExtra("custName") ?: ""
+        tvCustomerPhone.text = intent.getStringExtra("custPhone") ?: ""
+        tvCustomerAddress.text = intent.getStringExtra("custAddress") ?: ""
 
         btnBack.setOnClickListener {
             onBackPressed()
@@ -54,7 +54,7 @@ class AddInvoiceActivity : AppCompatActivity() {
 
         btnConfirm.setOnClickListener {
             btnConfirm.isClickable = false
-            if(!viewModel.checkIfZero()) {
+            if (!viewModel.checkIfZero()) {
                 viewModel.addInvoice(intent.getIntExtra("custId", 0), this).observe(this, {
                     val intent = Intent(this, BottomNavActivity::class.java)
                     intent.putExtra("redirect", 2)

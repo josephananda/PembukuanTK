@@ -23,7 +23,7 @@ import com.jadeappstudio.pembukuantk.repo.CustomerRepository
 class CustomerViewModel : ViewModel() {
     private var customerRepository = CustomerRepository()
 
-    fun getCustomer(context: Context): LiveData<CustomerItemResponse>{
+    fun getCustomer(context: Context): LiveData<CustomerItemResponse> {
         return customerRepository.getCustomer(context)
     }
 }

@@ -15,15 +15,14 @@
 package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.UsersAdapter
 import com.jadeappstudio.pembukuantk.viewmodel.UsersManagementViewModel
 import kotlinx.android.synthetic.main.activity_users_management.*
-import kotlinx.android.synthetic.main.activity_users_management.btnBack
 
 class UsersManagementActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +41,7 @@ class UsersManagementActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this).get(UsersManagementViewModel::class.java)
         viewModel.getUsers(this).observe(this, {
-            if(it.data != null) {
+            if (it.data != null) {
                 rvUsers.adapter = UsersAdapter(it.data)
                 rvUsers.layoutManager = LinearLayoutManager(this)
             }

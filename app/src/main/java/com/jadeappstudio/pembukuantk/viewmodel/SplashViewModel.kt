@@ -21,16 +21,16 @@ import com.jadeappstudio.pembukuantk.model.CheckTokenResponseModel
 import com.jadeappstudio.pembukuantk.repo.AuthRepository
 import com.jadeappstudio.pembukuantk.utils.SessionManager
 
-class SplashViewModel: ViewModel() {
+class SplashViewModel : ViewModel() {
     private var authRepository = AuthRepository()
 
-    fun checkToken(context: Context): String{
+    fun checkToken(context: Context): String {
         val sessionManager = SessionManager(context)
         val token = sessionManager.fetchAuthToken()
         return token.toString()
     }
 
-    fun checkValid(token: String, context: Context): LiveData<CheckTokenResponseModel>{
+    fun checkValid(token: String, context: Context): LiveData<CheckTokenResponseModel> {
         return authRepository.checkValid(token, context)
     }
 

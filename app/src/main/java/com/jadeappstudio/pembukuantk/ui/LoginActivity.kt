@@ -46,7 +46,12 @@ class LoginActivity : AppCompatActivity() {
                         btnLogin.isClickable = true
                     } else if (it.data.token != "") {
                         viewModel.saveToken(it.data.token.toString(), this)
-                        viewModel.saveData(it.data.user_id!!, it.data.user_type_id!!, it.data.username.toString(), this)
+                        viewModel.saveData(
+                            it.data.user_id!!,
+                            it.data.user_type_id!!,
+                            it.data.username.toString(),
+                            this
+                        )
                         val intent = Intent(this@LoginActivity, BottomNavActivity::class.java)
                         intent.putExtra("token", it.data.token)
                         startActivity(intent)

@@ -56,7 +56,8 @@ class DashboardFragment : Fragment() {
                 for (i in 0..it.data.detail.size - 1) {
                     entries.add(BarEntry(it.data.detail[i].profit!!.toFloat(), i))
                 }
-                val barDataSet = BarDataSet(entries, Calendar.getInstance().get(Calendar.YEAR).toString())
+                val barDataSet =
+                    BarDataSet(entries, Calendar.getInstance().get(Calendar.YEAR).toString())
 
                 val labels = arrayListOf(
                     "Jan",

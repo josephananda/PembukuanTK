@@ -19,8 +19,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.viewmodel.EditProductViewModel
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.viewmodel.EditProductViewModel
 import kotlinx.android.synthetic.main.activity_edit_product.*
 
 class EditProductActivity : AppCompatActivity() {

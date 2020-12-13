@@ -20,10 +20,10 @@ import androidx.lifecycle.ViewModel
 import com.jadeappstudio.pembukuantk.model.DeleteResponseModel
 import com.jadeappstudio.pembukuantk.repo.CustomerRepository
 
-class DetailCustomerViewModel: ViewModel() {
+class DetailCustomerViewModel : ViewModel() {
     private var customerRepository = CustomerRepository()
 
-    fun deleteCustomer(customerId: Int, context: Context): LiveData<DeleteResponseModel>{
+    fun deleteCustomer(customerId: Int, context: Context): LiveData<DeleteResponseModel> {
         return customerRepository.deleteCustomer(customerId, context)
     }
 }

@@ -19,8 +19,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.viewmodel.AddUserViewModel
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.viewmodel.AddUserViewModel
 import kotlinx.android.synthetic.main.activity_add_customer.*
 import kotlinx.android.synthetic.main.activity_add_user.*
 import kotlinx.android.synthetic.main.activity_add_user.btnBack

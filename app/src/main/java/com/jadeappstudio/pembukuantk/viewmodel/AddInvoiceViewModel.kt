@@ -40,34 +40,34 @@ class AddInvoiceViewModel : ViewModel() {
     }
 
     fun pushToList(item: ItemListInvoice) {
-        if(item.qty == 1){
+        if (item.qty == 1) {
             itemListPlus.add(item)
         } else {
             itemListMinus.add(item)
         }
     }
 
-    fun getProductIdArray(){
+    fun getProductIdArray() {
         var temp = itemListPlus.distinctBy { it.product_id }
         var tempTwo = itemListMinus.distinctBy { it.product_id }
-        for(i in 0..temp.size-1){
+        for (i in 0..temp.size - 1) {
             tempArrayPlus.add(temp[i].product_id!!)
         }
-        for (j in 0..tempTwo.size-1){
+        for (j in 0..tempTwo.size - 1) {
             tempArrayMinus.add(temp[j].product_id!!)
         }
         checkUnique()
     }
 
-    fun checkUnique(){
-        for(i in 0..tempArrayPlus.size-1) {
+    fun checkUnique() {
+        for (i in 0..tempArrayPlus.size - 1) {
             flag = true
             for (j in 0..tempArrayMinus.size - 1) {
                 if (tempArrayPlus[i] == tempArrayMinus[j]) {
                     flag = false
                 }
             }
-            if(flag) {
+            if (flag) {
                 tempUniqueFinal.add(tempArrayPlus[i])
             }
             flag = true
@@ -78,28 +78,38 @@ class AddInvoiceViewModel : ViewModel() {
         getProductIdArray()
         var tempPlus = itemListPlus.groupingBy { it.product_id }.eachCount()
         var tempMinus = itemListMinus.groupingBy { it.product_id }.eachCount()
-        if(tempPlus.isNotEmpty()){
-                if(tempMinus.isNotEmpty()){
-                    tempPlus.forEach{ itemPlus ->
-                        tempMinus.forEach{ itemMinus ->
-                            if(itemPlus.key == itemMinus.key){
-                                Log.i("ITEM PLUS", "$itemPlus")
-                                Log.i("ITEM MINUS", "$itemMinus")
-                                itemListDistinct.add(ItemListInvoice(itemPlus.key, (itemPlus.value?.minus(itemMinus.value?: 0))))
-                            } else {
-                                for(i in 0 until tempUniqueFinal.size){
-                                    if(itemPlus.key == tempUniqueFinal[i]){
-                                        itemListDistinct.add(ItemListInvoice(itemPlus.key, itemPlus.value))
-                                    }
+        if (tempPlus.isNotEmpty()) {
+            if (tempMinus.isNotEmpty()) {
+                tempPlus.forEach { itemPlus ->
+                    tempMinus.forEach { itemMinus ->
+                        if (itemPlus.key == itemMinus.key) {
+                            Log.i("ITEM PLUS", "$itemPlus")
+                            Log.i("ITEM MINUS", "$itemMinus")
+                            itemListDistinct.add(
+                                ItemListInvoice(
+                                    itemPlus.key,
+                                    (itemPlus.value?.minus(itemMinus.value ?: 0))
+                                )
+                            )
+                        } else {
+                            for (i in 0 until tempUniqueFinal.size) {
+                                if (itemPlus.key == tempUniqueFinal[i]) {
+                                    itemListDistinct.add(
+                                        ItemListInvoice(
+                                            itemPlus.key,
+                                            itemPlus.value
+                                        )
+                                    )
                                 }
                             }
                         }
                     }
-                } else {
-                    tempPlus.forEach{ it ->
-                        itemListDistinct.add(ItemListInvoice(it.key, it.value))
-                    }
                 }
+            } else {
+                tempPlus.forEach { it ->
+                    itemListDistinct.add(ItemListInvoice(it.key, it.value))
+                }
+            }
         }
         Log.i("Distinct", "$itemListDistinct")
         return itemListDistinct

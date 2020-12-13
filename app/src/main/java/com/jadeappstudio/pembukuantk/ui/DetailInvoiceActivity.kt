@@ -14,13 +14,13 @@
 
 package com.jadeappstudio.pembukuantk.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jadeappstudio.pembukuantk.viewmodel.DetailInvoiceViewModel
 import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.InvoiceDetailAdapter
+import com.jadeappstudio.pembukuantk.viewmodel.DetailInvoiceViewModel
 import kotlinx.android.synthetic.main.activity_detail_invoice.*
 
 class DetailInvoiceActivity : AppCompatActivity() {

@@ -17,8 +17,9 @@ package com.jadeappstudio.pembukuantk.utils
 import android.content.Context
 import android.content.SharedPreferences
 
-class SessionManager(context: Context){
-    private var prefs: SharedPreferences = context.getSharedPreferences("PembukuanTK", Context.MODE_PRIVATE)
+class SessionManager(context: Context) {
+    private var prefs: SharedPreferences =
+        context.getSharedPreferences("PembukuanTK", Context.MODE_PRIVATE)
 
     companion object {
         const val USER_TOKEN = "user_token"
@@ -37,19 +38,19 @@ class SessionManager(context: Context){
         return prefs.getString(USER_TOKEN, null)
     }
 
-    fun saveUserId(userId: Int){
+    fun saveUserId(userId: Int) {
         val editor = prefs.edit()
         editor.putInt(USER_ID, userId)
         editor.apply()
     }
 
-    fun saveUserTypeId(userTypeId: Int){
+    fun saveUserTypeId(userTypeId: Int) {
         val editor = prefs.edit()
         editor.putInt(USER_TYPE_ID, userTypeId)
         editor.apply()
     }
 
-    fun saveUsername(username: String){
+    fun saveUsername(username: String) {
         val editor = prefs.edit()
         editor.putString(USERNAME, username)
         editor.apply()
@@ -59,7 +60,7 @@ class SessionManager(context: Context){
         return prefs.getInt(USER_TYPE_ID, 0)
     }
 
-    fun fetchUserId(): Int?{
+    fun fetchUserId(): Int? {
         return prefs.getInt(USER_ID, 0)
     }
 }

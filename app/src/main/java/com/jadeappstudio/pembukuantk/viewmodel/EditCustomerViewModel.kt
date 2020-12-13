@@ -20,10 +20,24 @@ import androidx.lifecycle.ViewModel
 import com.jadeappstudio.pembukuantk.model.AddCustomerResponseModel
 import com.jadeappstudio.pembukuantk.repo.CustomerRepository
 
-class EditCustomerViewModel: ViewModel() {
+class EditCustomerViewModel : ViewModel() {
     private var customerRepository = CustomerRepository()
 
-    fun editCustomer(customerId: Int, customerName: String, customerPhone: String, customerEmail: String, customerAddress: String, context: Context): LiveData<AddCustomerResponseModel> {
-        return customerRepository.editCustomer(customerId, customerName, customerPhone, customerEmail, customerAddress, context)
+    fun editCustomer(
+        customerId: Int,
+        customerName: String,
+        customerPhone: String,
+        customerEmail: String,
+        customerAddress: String,
+        context: Context
+    ): LiveData<AddCustomerResponseModel> {
+        return customerRepository.editCustomer(
+            customerId,
+            customerName,
+            customerPhone,
+            customerEmail,
+            customerAddress,
+            context
+        )
     }
 }

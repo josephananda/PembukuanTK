@@ -36,16 +36,20 @@ class LoginViewModel : ViewModel() {
         return respon
     }
 
-    fun login(username: String, password: String, context: Context): LiveData<LoginResponseModel?>? {
+    fun login(
+        username: String,
+        password: String,
+        context: Context
+    ): LiveData<LoginResponseModel?>? {
         return authRepository.login(username, password, context)
     }
 
-    fun saveToken(token: String, context: Context){
+    fun saveToken(token: String, context: Context) {
         val sessionManager = SessionManager(context)
         sessionManager.saveAuthToken(token)
     }
 
-    fun saveData(userId: Int, userTypeId: Int, username: String, context: Context){
+    fun saveData(userId: Int, userTypeId: Int, username: String, context: Context) {
         val sessionManager = SessionManager(context)
         sessionManager.saveUserId(userId)
         sessionManager.saveUserTypeId(userTypeId)

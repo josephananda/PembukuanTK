@@ -20,10 +20,14 @@ import androidx.lifecycle.ViewModel
 import com.jadeappstudio.pembukuantk.model.AddProductResponseModel
 import com.jadeappstudio.pembukuantk.repo.InventoryRepository
 
-class AddProductViewModel: ViewModel() {
+class AddProductViewModel : ViewModel() {
     private var inventoryRepository = InventoryRepository()
 
-    fun addProduct(productName: String, productPrice: String, context: Context): LiveData<AddProductResponseModel?>{
+    fun addProduct(
+        productName: String,
+        productPrice: String,
+        context: Context
+    ): LiveData<AddProductResponseModel?> {
         return inventoryRepository.addProduct(productName, productPrice, context)
     }
 }

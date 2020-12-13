@@ -15,12 +15,12 @@
 package com.jadeappstudio.pembukuantk.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.jadeappstudio.pembukuantk.viewmodel.AddProductViewModel
 import com.jadeappstudio.pembukuantk.R
+import com.jadeappstudio.pembukuantk.viewmodel.AddProductViewModel
 import kotlinx.android.synthetic.main.activity_add_product.*
 
 class AddProductActivity : AppCompatActivity() {

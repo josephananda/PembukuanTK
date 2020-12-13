@@ -38,17 +38,18 @@ class AddProductStockActivity : AppCompatActivity() {
         btnAddProductStock.setOnClickListener {
             val productQuantity = etQuantity.text.toString().toInt()
             val viewModel = ViewModelProvider(this).get(AddProductStockViewModel::class.java)
-            viewModel.addStock(intent.getIntExtra("productId", 0), productQuantity, this).observe(this, {
-                if (it == null) {
-                    Toast.makeText(this, "FAILED TO ADD QUANTITY", Toast.LENGTH_LONG).show()
-                    btnAddProductStock.isClickable = false
-                } else if (it.status.equals("success")) {
-                    val intent = Intent(this, BottomNavActivity::class.java)
-                    intent.putExtra("redirect", 4)
-                    startActivity(intent)
-                    finishAffinity()
-                }
-            })
+            viewModel.addStock(intent.getIntExtra("productId", 0), productQuantity, this)
+                .observe(this, {
+                    if (it == null) {
+                        Toast.makeText(this, "FAILED TO ADD QUANTITY", Toast.LENGTH_LONG).show()
+                        btnAddProductStock.isClickable = false
+                    } else if (it.status.equals("success")) {
+                        val intent = Intent(this, BottomNavActivity::class.java)
+                        intent.putExtra("redirect", 4)
+                        startActivity(intent)
+                        finishAffinity()
+                    }
+                })
         }
     }
 }

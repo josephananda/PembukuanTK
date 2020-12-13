@@ -15,11 +15,11 @@
 package com.jadeappstudio.pembukuantk.ui
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jadeappstudio.pembukuantk.R
 
 class BottomNavActivity : AppCompatActivity() {
@@ -46,29 +46,29 @@ class BottomNavActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if(redirect != null){
-            when(redirect){
-                1-> {
+        if (redirect != null) {
+            when (redirect) {
+                1 -> {
                     val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
                     graph.startDestination = R.id.navigation_dashboard
                     navController.graph = graph
                 }
-                2-> {
+                2 -> {
                     val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
                     graph.startDestination = R.id.navigation_transactions
                     navController.graph = graph
                 }
-                3-> {
+                3 -> {
                     val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
                     graph.startDestination = R.id.navigation_customer
                     navController.graph = graph
                 }
-                4-> {
+                4 -> {
                     val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
                     graph.startDestination = R.id.navigation_inventory
                     navController.graph = graph
                 }
-                5-> {
+                5 -> {
                     val graph = navController.navInflater.inflate(R.navigation.mobile_navigation)
                     graph.startDestination = R.id.navigation_profile
                     navController.graph = graph

@@ -20,10 +20,10 @@ import androidx.lifecycle.ViewModel
 import com.jadeappstudio.pembukuantk.model.DeleteResponseModel
 import com.jadeappstudio.pembukuantk.repo.InventoryRepository
 
-class DetailProductViewModel: ViewModel() {
+class DetailProductViewModel : ViewModel() {
     private var inventoryRepository = InventoryRepository()
 
-    fun deleteProduct(productId: Int, context: Context): LiveData<DeleteResponseModel>{
+    fun deleteProduct(productId: Int, context: Context): LiveData<DeleteResponseModel> {
         return inventoryRepository.deleteProduct(productId, context)
     }
 }

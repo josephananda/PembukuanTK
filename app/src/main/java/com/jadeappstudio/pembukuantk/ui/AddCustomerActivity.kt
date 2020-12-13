@@ -41,17 +41,18 @@ class AddCustomerActivity : AppCompatActivity() {
             btnAddCustomer.isClickable = false
 
             val viewModel = ViewModelProvider(this).get(AddCustomerViewModel::class.java)
-            viewModel.addCustomer(customerName, customerPhone, customerEmail, customerAddress, this)?.observe(this, {
-                if(it == null){
-                    Toast.makeText(this, "FAILED TO ADD CUSTOMER", Toast.LENGTH_LONG).show()
-                    btnAddCustomer.isClickable = true
-                } else if(it.status.equals("success")){
-                    val intent = Intent(this, BottomNavActivity::class.java)
-                    intent.putExtra("redirect", 3)
-                    startActivity(intent)
-                    finishAffinity()
-                }
-            })
+            viewModel.addCustomer(customerName, customerPhone, customerEmail, customerAddress, this)
+                ?.observe(this, {
+                    if (it == null) {
+                        Toast.makeText(this, "FAILED TO ADD CUSTOMER", Toast.LENGTH_LONG).show()
+                        btnAddCustomer.isClickable = true
+                    } else if (it.status.equals("success")) {
+                        val intent = Intent(this, BottomNavActivity::class.java)
+                        intent.putExtra("redirect", 3)
+                        startActivity(intent)
+                        finishAffinity()
+                    }
+                })
         }
     }
 }

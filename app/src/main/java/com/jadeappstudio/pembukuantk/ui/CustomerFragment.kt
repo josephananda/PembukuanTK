@@ -26,9 +26,6 @@ import com.jadeappstudio.pembukuantk.R
 import com.jadeappstudio.pembukuantk.adapter.CustomerAdapter
 import com.jadeappstudio.pembukuantk.viewmodel.CustomerViewModel
 import kotlinx.android.synthetic.main.fragment_customer.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class CustomerFragment : Fragment() {
 
